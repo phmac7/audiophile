@@ -1,5 +1,12 @@
+import { Button } from '@/components/atoms';
 import styles from './page.module.scss';
 
 export default function Home() {
-  return <h1 className={styles.test}>hello world</h1>;
+  return (
+    <>
+      <Button label="see product" variation="primary" />
+      <Button label="see product" variation="secondary" />
+      <Button label="see product" variation="tertiary" />
+    </>
+  );
 }

@@ -1,0 +1,36 @@
+.button {
+    cursor: pointer;
+    padding: 1.5rem 2.95rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+
+    &--primary {
+        background-color: var(--primary);
+        border: 1px solid var(--primary);
+        color: #fff;
+
+        &:hover {
+            background-color: var(--primary-light);
+            border: 1px solid var(--primary-light);
+        }
+    }
+    &--secondary {
+        background-color: #fff;
+        border: 1px solid #000;
+        &:hover {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    &--tertiary {
+        background-color: transparent;
+        border: none;
+        gap: 1rem;
+        &:hover {
+            color: var(--primary);
+        }
+    }
+}
