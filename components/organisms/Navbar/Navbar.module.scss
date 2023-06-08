@@ -1,0 +1,31 @@
+.navbar {
+    background-color: var(--dark);
+    color: #fff;
+    &__container{
+        padding: 2.4rem 3.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__links{
+        &Hamburguer {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        
+    }
+    &__cart{
+        &Icon {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    &__logo{
+        &Link {
+          display: flex;
+          align-items: center;  
+        }
+    }
+}

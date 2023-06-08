@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/organisms';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
 
@@ -15,7 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>{children}</body>
+      <body className={manrope.className}>
+        <Navbar />
+        <header></header>
+        <main>{children}</main>
+        <footer></footer>
+      </body>
     </html>
   );
 }

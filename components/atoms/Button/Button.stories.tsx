@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Button from './';
 
 export default {
-  title: 'Componentes/Atoms/Button',
+  title: 'Components/Atoms/Button',
   component: Button,
   args: {
     label: 'see product',
