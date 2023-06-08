@@ -1,0 +1,22 @@
+.header {
+    background-image: url('/assets/home/mobile/image-header.jpg');
+    background-repeat: no-repeat;
+    background-position-y: -100px;
+    background-size: cover;
+    padding: 11.2rem 4rem;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        row-gap: 2.8rem;
+    }
+    &__title {
+        color: #fff;
+        text-align: center;
+    }
+    &__description {
+        color: rgba(#fff, $alpha: .7);
+        text-align: center;
+    }
+}

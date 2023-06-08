@@ -1,4 +1,4 @@
-import { Navbar } from '@/components/organisms';
+import { Header, Navbar } from '@/components/organisms';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <Navbar />
-        <header></header>
+        <Header />
         <main>{children}</main>
         <footer></footer>
       </body>
