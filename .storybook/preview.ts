@@ -5,6 +5,7 @@ import '@/styles/font-sb.css'
 
 const preview: Preview = {
   parameters: {
+    layout: 'fullscreen',
     docs: {
         theme: themes.dark
     },
