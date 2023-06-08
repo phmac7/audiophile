@@ -1,0 +1,12 @@
+.overline {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    line-height: 1.9rem;
+    &--primary{
+        color: var(--primary);
+    }
+    &--secondary{
+        color: rgba(#fff, $alpha: .6);
+    }
+}
