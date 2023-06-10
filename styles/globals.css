@@ -22,7 +22,12 @@ body {
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.5rem;
+    padding-top: 75px;
+}
 
+body.navbar-open {
+    height: 100%;
+    overflow-y: hidden;
 }
 
 a, a:visited {

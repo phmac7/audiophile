@@ -1,9 +1,20 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import styles from './Navbar.module.scss';
 import { CartIcon, HamburguerIcon, Logo } from '@/components/Ions';
 import Link from 'next/link';
+import Categories from '../Categories';
 
 const Navbar: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    menuOpen
+      ? document.body.classList.add('navbar-open')
+      : document.body.classList.remove('navbar-open');
+  }, [menuOpen]);
+
   return (
     <nav className={styles.navbar} role="navigation">
       <div className={styles.navbar__container}>
@@ -13,6 +24,7 @@ const Navbar: React.FC = () => {
             aria-label="Menu Hamburguer"
             aria-hidden="true"
             title="Menu"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <HamburguerIcon />
           </button>
@@ -34,6 +46,15 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <>
+          <div className={styles.navbar__menuOpen}>
+            <Categories></Categories>
+          </div>
+          <div className={styles.navbar__menuOpenBackdrop}></div>
+        </>
+      )}
     </nav>
   );
 };
