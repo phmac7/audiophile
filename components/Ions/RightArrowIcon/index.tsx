@@ -8,7 +8,7 @@ const RightArrowIcon = () => {
         stroke="#D87D4A"
         stroke-width="2"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       />
     </svg>
   );

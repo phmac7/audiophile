@@ -1,0 +1,11 @@
+.categories {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    &__list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 6.8rem;
+    }
+}

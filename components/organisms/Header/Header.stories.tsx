@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import '@/public/assets/home/mobile/image-header.jpg';
 import Header from '.';
 
 export default {
@@ -7,4 +6,14 @@ export default {
   component: Header,
 } as Meta;
 
-export const Default: StoryObj = {};
+export const Homepage: StoryObj = {
+  args: {
+    pathname: '/',
+  },
+};
+
+export const Headphones: StoryObj = {
+  args: {
+    pathname: '/headphones',
+  },
+};

@@ -1,6 +1,7 @@
 .navbar {
     background-color: var(--dark);
     color: #fff;
+    border-bottom: 1px solid rgba(#fff, $alpha: .1);
     &__container{
         padding: 2.4rem 3.2rem;
         display: flex;
