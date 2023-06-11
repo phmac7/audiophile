@@ -15,7 +15,10 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
         src={`/assets/shared/desktop/image-category-thumbnail-${category}.png`}
         alt={category}
         fill
-        objectFit="contain"
+        style={{
+          objectFit: 'cover',
+        }}
+        sizes="fill"
       />
     );
   };

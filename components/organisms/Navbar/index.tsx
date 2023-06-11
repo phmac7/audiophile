@@ -1,19 +1,26 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import { CartIcon, HamburguerIcon, Logo } from '@/components/Ions';
 import Link from 'next/link';
-import Categories from '../Categories';
+import { useStore } from '@/store/store';
+import { useWindowSize } from 'usehooks-ts';
+import { MenuDropDown } from '@/components/molecules';
 
 const Navbar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const menuOpen = useStore((state) => state.menuOpen);
+  const toggleMenuOpen = useStore((state) => state.toggleMenuOpen);
+  const closeMenu = useStore((state) => state.closeMenu);
+  const { width } = useWindowSize();
 
   useEffect(() => {
     menuOpen
       ? document.body.classList.add('navbar-open')
       : document.body.classList.remove('navbar-open');
-  }, [menuOpen]);
+
+    width >= 1024 ? closeMenu() : null;
+  }, [menuOpen, width]);
 
   return (
     <nav className={styles.navbar} role="navigation">
@@ -24,7 +31,7 @@ const Navbar: React.FC = () => {
             aria-label="Menu Hamburguer"
             aria-hidden="true"
             title="Menu"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={toggleMenuOpen}
           >
             <HamburguerIcon />
           </button>
@@ -47,14 +54,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {menuOpen && (
-        <>
-          <div className={styles.navbar__menuOpen}>
-            <Categories></Categories>
-          </div>
-          <div className={styles.navbar__menuOpenBackdrop}></div>
-        </>
-      )}
+      {menuOpen && <MenuDropDown />}
     </nav>
   );
 };

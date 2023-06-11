@@ -22,4 +22,20 @@ const Categories: React.FC<CategoriesProps> = () => {
   );
 };
 
+export const CategoriesOnMenu: React.FC<CategoriesProps> = () => {
+  return (
+    <ul className={styles.categories__list}>
+      <li className={styles.categories__item}>
+        <Category category="headphones" />
+      </li>
+      <li className={styles.categories__item}>
+        <Category category="speakers" />
+      </li>
+      <li className={styles.categories__item}>
+        <Category category="earphones" />
+      </li>
+    </ul>
+  );
+};
+
 export default Categories;
