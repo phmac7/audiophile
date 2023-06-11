@@ -2,7 +2,19 @@
     margin: 7.4rem 2.4rem;
     display: grid;
     grid-template-columns: 1fr;
+    max-width: 111rem;
+    align-content: center;
+
     @media only screen and (min-width: 768px) {
-        margin: 7.4rem 3.9rem;
+        margin: 9.6rem 4rem;
+    }
+    @media only screen and (min-width: 1024px) {
+        margin: 9.6rem 10rem;
+    }
+    @media only screen and (min-width: 1300px) {
+        margin: 9.6rem auto;
+    }
+    @media only screen and (min-width: 1440px) {
+        margin: 12rem auto;
     }
 }

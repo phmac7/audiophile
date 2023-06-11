@@ -1,4 +1,4 @@
-import { Header, Navbar } from '@/components/organisms';
+import { Categories, Header, Navbar } from '@/components/organisms';
 import React from 'react';
 
 const Homepage = () => {
@@ -6,6 +6,11 @@ const Homepage = () => {
     <>
       <Navbar />
       <Header pathname="/" />
+      <main style={{ margin: '60px auto' }}>
+        <section>
+          <Categories />
+        </section>
+      </main>
     </>
   );
 };
