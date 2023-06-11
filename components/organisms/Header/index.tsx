@@ -22,8 +22,16 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
       </header>
     );
   }
-  if (pathname === '/headphones') {
-    return <h1 className={styles.header__title}>headphones</h1>;
+  if (
+    pathname === '/headphones' ||
+    pathname === '/earphones' ||
+    pathname === '/speakers'
+  ) {
+    return (
+      <header className={styles.heading}>
+        <h1 className={styles.heading__title}>{pathname.substring(1)}</h1>
+      </header>
+    );
   }
   return null;
 };
