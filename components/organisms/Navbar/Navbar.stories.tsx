@@ -9,15 +9,10 @@ export default {
 
 export const Default: StoryObj = {};
 
-export const Open: StoryObj = {
+export const MenuDropdown: StoryObj = {
   decorators: [
     () => {
-      return (
-        <>
-          <Navbar />
-          <MenuDropDown />
-        </>
-      );
+      return <MenuDropDown />;
     },
   ],
 };
