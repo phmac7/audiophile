@@ -6,21 +6,46 @@ import { CartIcon, HamburguerIcon, Logo } from '@/components/Ions';
 import Link from 'next/link';
 import { useStore } from '@/store/store';
 import { useWindowSize } from 'usehooks-ts';
-import { MenuDropDown } from '@/components/molecules';
+import { CartDropDown, MenuDropDown } from '@/components/molecules';
 
 const Navbar: React.FC = () => {
-  const menuOpen = useStore((state) => state.menuOpen);
-  const toggleMenuOpen = useStore((state) => state.toggleMenuOpen);
-  const closeMenu = useStore((state) => state.closeMenu);
+  const {
+    closeCart,
+    isCartOpen,
+    toggleCartOpen,
+    isMenuOpen,
+    toggleMenuOpen,
+    closeMenu,
+  } = useStore();
   const { width } = useWindowSize();
 
   useEffect(() => {
-    menuOpen
+    isMenuOpen
       ? document.body.classList.add('navbar-open')
       : document.body.classList.remove('navbar-open');
 
     width >= 1024 ? closeMenu() : null;
-  }, [menuOpen, width]);
+  }, [isMenuOpen, width]);
+
+  const linksList = [
+    { title: 'home', link: '/' },
+    { title: 'headphones', link: '/headphones' },
+    { title: 'speakers', link: '/speakers' },
+    { title: 'earphones', link: '/earphones' },
+  ];
+
+  const toggleMenu = () => {
+    if (isCartOpen) {
+      closeCart();
+    }
+    toggleMenuOpen();
+  };
+  const toggleCart = () => {
+    if (isMenuOpen) {
+      closeMenu();
+    }
+    toggleCartOpen();
+  };
 
   return (
     <nav className={styles.navbar} role="navigation">
@@ -29,13 +54,20 @@ const Navbar: React.FC = () => {
           <button
             className={styles.navbar__linksHamburguer}
             aria-label="Menu Hamburguer"
-            aria-hidden="true"
             title="Menu"
-            onClick={toggleMenuOpen}
+            onClick={toggleMenu}
           >
             <HamburguerIcon />
           </button>
-          <ul className={styles.navbar__linksList}></ul>
+          <ul className={styles.navbar__linksList}>
+            {linksList.map((item) => (
+              <li key={item.title} className={styles.navbar__linksItem}>
+                <Link href={item.link} className={styles.navbar__link}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={styles.navbar__logo}>
           <Link
@@ -48,13 +80,19 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
         <div className={styles.navbar__cart}>
-          <button className={styles.navbar__cartIcon}>
+          <button
+            className={styles.navbar__cartIcon}
+            onClick={toggleCart}
+            title="Cart"
+            aria-label="Cart"
+          >
             <CartIcon />
           </button>
         </div>
       </div>
 
-      {menuOpen && <MenuDropDown />}
+      {isMenuOpen && <MenuDropDown />}
+      {isCartOpen && <CartDropDown />}
     </nav>
   );
 };
