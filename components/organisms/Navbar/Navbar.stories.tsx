@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import Navbar from '.';
-import { MenuDropDown } from '@/components/molecules';
+import { CartDropDown, MenuDropDown } from '@/components/molecules';
 
 export default {
   title: 'Components/Organisms/Navbar',
@@ -9,10 +9,18 @@ export default {
 
 export const Default: StoryObj = {};
 
-export const MenuDropdown: StoryObj = {
+export const MenuOpen: StoryObj = {
   decorators: [
     () => {
       return <MenuDropDown />;
+    },
+  ],
+};
+
+export const CartOpen: StoryObj = {
+  decorators: [
+    () => {
+      return <CartDropDown />;
     },
   ],
 };
