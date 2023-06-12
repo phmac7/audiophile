@@ -1,4 +1,4 @@
-import { Button, Overline } from '@/components/atoms';
+import { Button, H1, Overline } from '@/components/atoms';
 import React from 'react';
 import styles from './Header.module.scss';
 
@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
       <header className={styles.header}>
         <div className={styles.header__container}>
           <Overline text="new product" variation="secondary" />
-          <h1 className={styles.header__title}>xx99 mark ii headphones</h1>
+          <H1 text="xx99 mark ii headphones" color="#FFF"></H1>
           <p className={styles.header__description}>
             Experience natural, lifelike audio and expectional build quality
             made for the passionate music enthusiast.
@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
   ) {
     return (
       <header className={styles.heading}>
-        <h1 className={styles.heading__title}>{pathname.substring(1)}</h1>
+        <H1 text={pathname.substring(1)} color="#FFF" />
       </header>
     );
   }
