@@ -1,5 +1,5 @@
 'use client';
-import { Button, H2 } from '@/components/atoms';
+import { Button, H2, Paragraph } from '@/components/atoms';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import styles from './FeaturedProduct.module.scss';
@@ -56,9 +56,9 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({
           </div>
           <div className={styles.featuredPrimary__text}>
             <H2 text={title} color="#FFF" />
-            <p className={styles.featuredPrimary__textDescription}>
-              {description}
-            </p>
+            <div className={styles.featuredPrimary__textDescription}>
+              <Paragraph variation="secondary" text={description} />
+            </div>
             <Button label="see product" variation="secondary" />
           </div>
         </div>

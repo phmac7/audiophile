@@ -1,4 +1,4 @@
-import { Navbar } from '@/components/organisms';
+import { Footer, Navbar } from '@/components/organisms';
 import GetHeader from '@/helpers/GetHeader';
 import '@/styles/globals.css';
 import { Manrope } from 'next/font/google';
@@ -22,7 +22,7 @@ export default function RootLayout({
         <Navbar />
         <GetHeader />
         <main className={styles.layout}>{children}</main>
-        <footer></footer>
+        <Footer />
       </body>
     </html>
   );
