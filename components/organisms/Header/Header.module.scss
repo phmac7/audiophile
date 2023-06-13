@@ -4,6 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     padding: 11.2rem 4rem;
+    background-color: var(--dark);
     height: 550px;
     
 
@@ -51,6 +52,9 @@
         background-position-y: -170px;
     }
 
+    &Main {
+        background-color: var(--dark);
+    }
     &__container {
         display: grid;
         grid-template-columns: 1fr;
@@ -82,7 +86,6 @@
         }
     }
     &__description {
-        color: rgba(#fff, $alpha: .7);
         text-align: center;
         @media only screen and (min-width: 1024px) {
             grid-row-start: 3;

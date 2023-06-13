@@ -40,7 +40,7 @@
             grid-column-end: 2;
             grid-row-start: 1;
             grid-row-end: 2;
-            padding-right: 6rem;
+            padding: 0 6rem 0 0;
             justify-content: center;
         }
 
@@ -68,10 +68,7 @@
         }
 
         &Description {
-            line-height: 25px;
-            font-weight: 500;
             text-align: center;
-            opacity: .7;
             @media only screen and (min-width: 1024px) {
                 text-align: start;
                 

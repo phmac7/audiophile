@@ -35,6 +35,9 @@
         min-width: 30rem;
         @media only screen and (min-width:768px) {
             min-width: min-content;
-    }
+        }
+        &:hover button {
+            color: var(--primary);
+        }
     }
 }

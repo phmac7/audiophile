@@ -7,7 +7,7 @@ export default {
   decorators: [
     (Story: any) => {
       return (
-        <div style={{ marginTop: '70px', width: '1110px' }}>{Story()}</div>
+        <div style={{ marginTop: '70px', maxWidth: '1110px' }}>{Story()}</div>
       );
     },
   ],

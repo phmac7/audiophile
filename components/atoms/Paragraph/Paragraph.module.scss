@@ -1,0 +1,14 @@
+.paragraph {
+
+    font-size: 1.5rem;
+    line-height: 25px;
+    font-weight: 500;
+
+    &--primary {
+        color: rgba($color: #000, $alpha: .7);
+    }
+
+    &--secondary {
+        color: rgba($color: #fff, $alpha: .7);
+    }
+}

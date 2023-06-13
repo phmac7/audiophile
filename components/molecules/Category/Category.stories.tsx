@@ -6,7 +6,9 @@ export default {
   component: Category,
   decorators: [
     (Story: any) => {
-      return <div style={{ marginTop: '70px' }}>{Story()}</div>;
+      return (
+        <div style={{ marginTop: '70px', maxWidth: '400px' }}>{Story()}</div>
+      );
     },
   ],
 } as Meta;

@@ -1,7 +1,7 @@
 .cart {
         position: absolute;
         top: 100px;
-        right: 3.2rem;
+        right: 2.4rem;
         z-index: -1;
         background-color: #fff;
         color: #000;
@@ -14,6 +14,31 @@
 
         @media only screen and (min-width: 768px){
             width: 31.7rem;
+            right: 4rem;
+        }
+        @media only screen and (min-width: 1024px){
+            right: 10rem;
+        }
+        @media only screen and (min-width: 1300px){
+            right: 13rem;
+        }
+        @media only screen and (min-width: 1440px){
+            right: 15rem;
+        }
+        @media only screen and (min-width: 1600px){
+            right: 25rem;
+        }
+        @media only screen and (min-width: 1800px){
+            right: 35rem;
+        }
+        @media only screen and (min-width: 1900px){
+            right: 40rem;
+        }
+        @media only screen and (min-width: 2000px){
+            right: 45rem;
+        }
+        @media only screen and (min-width: 2500px){
+            right: 70rem;
         }
         &Backdrop {
                 position: absolute;

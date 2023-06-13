@@ -1,20 +1,32 @@
 .navbar {
     color: #fff;
+    background-color: var(--dark);
     position: fixed;
     width: 100%;
     z-index: 999;
     top: 0;
     left: 0;
+    border-bottom: 1px solid rgba(#fff, $alpha: .1);
 
     &__container{
-        background-color: var(--dark);
-        border-bottom: 1px solid rgba(#fff, $alpha: .1);
-        padding: 2.4rem 3.2rem;
+        
+        padding: 2.4rem 0;
+        margin: 0 2.4rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: relative;
         z-index: 999;
+        max-width: 111rem;
+        @media only screen and (min-width:768px){
+            margin: 0 4rem;
+        }
+        @media only screen and (min-width:1024px){
+            margin: 0 10rem;
+        }
+        @media only screen and (min-width:1300px){
+            margin: 0 auto;
+        }
     }
     &__links{
         @media only screen and (min-width: 1024px) {
@@ -25,6 +37,9 @@
             background-color: transparent;
             border: none;
             cursor: pointer;
+            padding: .6rem;
+            display: flex;
+            align-items: center;
             @media only screen and (min-width: 1024px) {
                 display: none;
             }
@@ -36,17 +51,10 @@
             
             @media only screen and (min-width: 1024px) {
                 display: flex;
-                gap: 3rem;
-                text-transform: uppercase;
-                list-style: none;
             }
 
         }
-        &Item{
-            &:hover {
-                color: var(--primary);
-            }
-        }
+        
     }
     &__cart{
         position: relative;
@@ -58,6 +66,8 @@
             background-color: transparent;
             border: none;
             cursor: pointer;
+            padding: .6rem;
+            
         }
     }
     &__logo{

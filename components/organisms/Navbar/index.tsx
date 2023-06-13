@@ -6,7 +6,7 @@ import { CartIcon, HamburguerIcon, Logo } from '@/components/Ions';
 import Link from 'next/link';
 import { useStore } from '@/store/store';
 import { useWindowSize } from 'usehooks-ts';
-import { CartDropDown, MenuDropDown } from '@/components/molecules';
+import { CartDropDown, MenuDropDown, NavLinks } from '@/components/molecules';
 
 const Navbar: React.FC = () => {
   const {
@@ -27,13 +27,6 @@ const Navbar: React.FC = () => {
     width >= 1024 ? closeMenu() : null;
   }, [isMenuOpen, width]);
 
-  const linksList = [
-    { title: 'home', link: '/' },
-    { title: 'headphones', link: '/headphones' },
-    { title: 'speakers', link: '/speakers' },
-    { title: 'earphones', link: '/earphones' },
-  ];
-
   const toggleMenu = () => {
     if (isCartOpen) {
       closeCart();
@@ -47,9 +40,17 @@ const Navbar: React.FC = () => {
     toggleCartOpen();
   };
 
+  const closeIfOpen = () => {
+    if (isMenuOpen) {
+      closeMenu();
+    } else if (isCartOpen) {
+      closeCart();
+    }
+  };
+
   return (
     <nav className={styles.navbar} role="navigation">
-      <div className={styles.navbar__container}>
+      <div className={styles.navbar__container} onClick={closeIfOpen}>
         <div className={styles.navbar__links}>
           <button
             className={styles.navbar__linksHamburguer}
@@ -59,15 +60,9 @@ const Navbar: React.FC = () => {
           >
             <HamburguerIcon />
           </button>
-          <ul className={styles.navbar__linksList}>
-            {linksList.map((item) => (
-              <li key={item.title} className={styles.navbar__linksItem}>
-                <Link href={item.link} className={styles.navbar__link}>
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.navbar__linksList}>
+            <NavLinks />
+          </div>
         </div>
         <div className={styles.navbar__logo}>
           <Link
@@ -75,6 +70,7 @@ const Navbar: React.FC = () => {
             title="Go Home"
             aria-label="logo, go home"
             className={styles.navbar__logoLink}
+            onClick={closeIfOpen}
           >
             <Logo />
           </Link>

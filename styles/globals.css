@@ -2,6 +2,7 @@
   --primary: #d87d4a;
   --primary-light: #fbaf85;
   --dark: #191919;
+  --dark-strong: #101010;
   --secondary: #f1f1f1;
   --secondary-light: #fafafa;
 }
@@ -22,7 +23,7 @@ body {
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.5rem;
-    padding-top: 75px;
+    padding-top: 85px;
 }
 
 body.navbar-open {

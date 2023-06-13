@@ -39,6 +39,7 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
         className={styles.category__link}
         href={`/${category}`}
         onClick={onClickHandler}
+        aria-label={category}
       >
         <div className={styles.category__img}>{getCategoryImage()}</div>
         <span className={styles.category__label}>{category}</span>
