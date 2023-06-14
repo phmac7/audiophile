@@ -13,6 +13,8 @@ export interface ProductCardProps {
   title: string;
   description: string;
   isNew?: boolean;
+  indexInArray: number;
+  slug: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -22,6 +24,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   description,
   title,
   isNew = false,
+  indexInArray,
+  slug,
 }) => {
   const { width } = useWindowSize();
 
@@ -35,9 +39,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
     return desktopImgUrl;
   };
 
+  const isEven = () => {
+    return indexInArray % 2 === 0;
+  };
+
   return (
     <article className={styles.card}>
-      <Link href={'/'} className={styles.card__imgLink}>
+      <Link
+        href={'/product/' + slug}
+        className={`${styles.card__imgLink} ${
+          isEven()
+            ? `${styles['card__imgLink--left']}`
+            : `${styles['card__imgLink--right']}`
+        }`}
+      >
         <div className={styles.card__img}>
           <Image
             src={getImage()}
@@ -49,19 +64,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
           />
         </div>
       </Link>
-      {isNew && (
-        <div className={styles.card__newLabel}>
-          <Overline text="new product" variation="primary" />
+      <div className={styles.card__textContainer}>
+        {isNew && (
+          <div className={styles.card__newLabel}>
+            <Overline text="new product" variation="primary" />
+          </div>
+        )}
+        <div className={styles.card__title}>
+          <H2 text={title} />
         </div>
-      )}
-      <div className={styles.card__title}>
-        <H2 text={title} />
-      </div>
-      <div className={styles.card__description}>
-        <Paragraph text={description} />
-      </div>
-      <div className={styles.card__btn}>
-        <Button label="see product" />
+        <div className={styles.card__description}>
+          <Paragraph text={description} />
+        </div>
+        <div className={styles.card__btn}>
+          <Link href={'/'}>
+            <Button label="see product" />
+          </Link>
+        </div>
       </div>
     </article>
   );

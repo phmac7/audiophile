@@ -24,7 +24,7 @@ const ProductList: React.FC<ProductListProps> = ({ category }) => {
 
   return (
     <section className={styles.productList}>
-      {SortedProduts?.map((product) => (
+      {SortedProduts?.map((product, index) => (
         <ProductCard
           key={product.id}
           title={product.name}
@@ -33,6 +33,8 @@ const ProductList: React.FC<ProductListProps> = ({ category }) => {
           mobileImgUrl={product.categoryImage.mobile}
           tabletImgUrl={product.categoryImage.tablet}
           isNew={product.new}
+          indexInArray={index}
+          slug={product.slug}
         />
       ))}
     </section>

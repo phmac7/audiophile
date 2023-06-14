@@ -1,29 +1,83 @@
 .card {
     display: flex;
     flex-direction: column;
+    gap: 3rem;
+    @media only screen and (min-width:1024px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 6rem;
+        grid-template-rows: 56rem;
+    }
 
     &__img {
         position: relative;
-        width: auto;
+        width: 100%;
         height: 329px;
-        &Link {
+        border-radius: 10px;
+        overflow: hidden;
+        @media only screen and (min-width:1240px){
+            height: 100%;
+            width: 100%;
+        }
 
+        &Link {
+            width: 100%;
+            @media only screen and (min-width:1024px){
+                align-self: center;
+            }
+
+            &--right {
+                @media only screen and (min-width:1240px){
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            &--left {
+                @media only screen and (min-width:1240px){
+                    grid-column: 1/1;
+                    grid-row: 1/2;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
         }
     }
 
-    &newLabel {
-
+    &__textContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        @media only screen and (min-width:1024px){
+            align-items: flex-start;
+            justify-content: center;
+        }
     }
 
-    &title {
-
+    &__title {
+        text-align: center;
+        line-height: 32px;
+        @media only screen and (min-width:768px){
+            padding: 0 10rem;
+        }
+        @media only screen and (min-width:1024px){
+            text-align: start;
+            padding: 0;
+        }
     }
 
-    &description {
-
+    &__description {
+        text-align: center;
+        @media only screen and (min-width:768px){
+            padding: 0 6rem;            
+        }
+        @media only screen and (min-width:1024px){
+            text-align: start;
+            padding: 0;
+        }
     }
 
-    &btn {
-
-    }
 }
