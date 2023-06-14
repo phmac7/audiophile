@@ -1,0 +1,21 @@
+.social {
+    &__list {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    &__link {
+        padding: .4rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+        
+        &:hover path{
+            fill: var(--primary);
+        }
+    }
+}

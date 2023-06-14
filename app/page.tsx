@@ -1,5 +1,15 @@
-import styles from './page.module.scss';
+import {
+  AudiophileBio,
+  Categories,
+  FeaturedProducts,
+} from '@/components/organisms';
 
 export default function Home() {
-  return <h1 className={styles.test}>hello world</h1>;
+  return (
+    <>
+      <Categories />
+      <FeaturedProducts />
+      <AudiophileBio />
+    </>
+  );
 }

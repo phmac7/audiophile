@@ -1,0 +1,14 @@
+.navLinks {
+    display: flex;
+    gap: 3rem;
+    text-transform: uppercase;
+    list-style: none;
+
+    &__item {
+        &:hover {
+            color: var(--primary);
+        }
+        
+    }
+    &__links{}
+}
