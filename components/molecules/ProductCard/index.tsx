@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <article className={styles.card}>
       <Link
-        href={'/product/' + slug}
+        href={'/products/' + slug}
         className={`${styles.card__imgLink} ${
           isEven()
             ? `${styles['card__imgLink--left']}`
