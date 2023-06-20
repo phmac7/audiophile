@@ -3,32 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "npm run gen && next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "gen": "graphql-codegen --config codegen.yml --require dotenv/config"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.0-beta.3",
+    "@apollo/experimental-nextjs-app-support": "^0.2.1",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
+    "dotenv": "^16.3.1",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "graphql": "^16.6.0",
-    "graphql-request": "^6.1.0",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.32.1",
     "simple-zustand-devtools": "^1.1.0",
     "storybook-addon-react-router-v6": "^1.0.2",
-    "typescript": "5.1.3",
     "usehooks-ts": "^2.9.1",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "4.0.1",
+    "@graphql-codegen/client-preset": "4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@storybook/addon-essentials": "^7.0.18",
     "@storybook/addon-interactions": "^7.0.18",
     "@storybook/addon-links": "^7.0.18",
@@ -42,6 +48,7 @@
     "eslint-plugin-storybook": "^0.6.12",
     "sass": "^1.62.1",
     "storybook": "^7.0.18",
-    "tsconfig-paths-webpack-plugin": "^4.0.1"
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
+    "typescript": "^5.1.3"
   }
 }

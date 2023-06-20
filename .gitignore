@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 codegen.ts
+codegen.yml
 
 # debug
 npm-debug.log*
