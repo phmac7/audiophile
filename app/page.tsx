@@ -4,29 +4,15 @@ import {
   FeaturedProducts,
 } from '@/components/organisms';
 
-import { GraphQLClient, gql } from 'graphql-request';
-
-const endpoint = process.env.ENDPOINT_CONTENTFUL as string;
-const client = new GraphQLClient(endpoint, {
-  headers: {
-    authorization: `Bearer ${process.env.CONTENT_DELIVERY_KEY}`,
-  },
-});
-
-const query = gql`
-  {
-    categoryCollection {
-      items {
-        name
-      }
-    }
-  }
-`;
+import { getClient } from '../GraphQL/graphQLClient';
+import { GET_CATEGORIES } from '@/GraphQL/queries';
+import { GetCategoriesQuery } from '@/GraphQL/schema';
 
 export default async function Home() {
-  const data = await client.request(query);
-  console.log(data);
-
+  const client = getClient();
+  const { data }: { data: GetCategoriesQuery } = await client.query({
+    query: GET_CATEGORIES,
+  });
   return (
     <>
       <Categories />
