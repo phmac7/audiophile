@@ -7,16 +7,17 @@ import Link from 'next/link';
 import { useStore } from '@/store/store';
 
 export interface CategoryProps {
-  category: 'headphones' | 'speakers' | 'earphones';
+  category: string;
+  url: string;
 }
 
-const Category: React.FC<CategoryProps> = ({ category }) => {
+const Category: React.FC<CategoryProps> = ({ category, url }) => {
   const { closeMenu, isMenuOpen } = useStore();
 
   const getCategoryImage = () => {
     return (
       <Image
-        src={`/assets/shared/desktop/image-category-thumbnail-${category}.png`}
+        src={url}
         alt={category}
         fill
         style={{
@@ -37,7 +38,7 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
     <article className={styles.category}>
       <Link
         className={styles.category__link}
-        href={`/${category}`}
+        href={`/${category.toLowerCase()}`}
         onClick={onClickHandler}
         aria-label={category}
       >

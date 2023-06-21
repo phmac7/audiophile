@@ -169,15 +169,34 @@ export type AssetFilter = {
 
 export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
+  categoryCollection?: Maybe<CategoryCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  galleryItemCollection?: Maybe<GalleryItemCollection>;
   imageCollection?: Maybe<ImageCollection>;
-  productCollection?: Maybe<ProductCollection>;
+};
+
+
+export type AssetLinkingCollectionsCategoryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<AssetLinkingCollectionsCategoryCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AssetLinkingCollectionsGalleryItemCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<AssetLinkingCollectionsGalleryItemCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
@@ -191,18 +210,11 @@ export type AssetLinkingCollectionsImageCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
-
-export type AssetLinkingCollectionsProductCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<Array<InputMaybe<AssetLinkingCollectionsProductCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-};
-
-export enum AssetLinkingCollectionsImageCollectionOrder {
+export enum AssetLinkingCollectionsCategoryCollectionOrder {
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -213,11 +225,22 @@ export enum AssetLinkingCollectionsImageCollectionOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-export enum AssetLinkingCollectionsProductCollectionOrder {
+export enum AssetLinkingCollectionsGalleryItemCollectionOrder {
+  GalleryItemNameAsc = 'galleryItemName_ASC',
+  GalleryItemNameDesc = 'galleryItemName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum AssetLinkingCollectionsImageCollectionOrder {
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
-  PriceAsc = 'price_ASC',
-  PriceDesc = 'price_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -334,10 +357,14 @@ export type BoxContentLinkingCollectionsProductCollectionArgs = {
 };
 
 export enum BoxContentLinkingCollectionsProductCollectionOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -372,6 +399,7 @@ export type Category = Entry & {
   productsCollection?: Maybe<CategoryProductsCollection>;
   slug?: Maybe<Scalars['String']['output']>;
   sys: Sys;
+  thumbnail?: Maybe<Asset>;
 };
 
 
@@ -399,6 +427,13 @@ export type CategoryProductsCollectionArgs = {
 /** Category of a list of products [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/category) */
 export type CategorySlugArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** Category of a list of products [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/category) */
+export type CategoryThumbnailArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type CategoryCollection = {
@@ -429,6 +464,7 @@ export type CategoryFilter = {
   slug_not_contains?: InputMaybe<Scalars['String']['input']>;
   slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
+  thumbnail_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type CategoryLinkingCollections = {
@@ -455,10 +491,14 @@ export type CategoryLinkingCollectionsProductCollectionArgs = {
 };
 
 export enum CategoryLinkingCollectionsProductCollectionOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -549,6 +589,115 @@ export enum EntryOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/galleryItem) */
+export type GalleryItem = Entry & {
+  __typename?: 'GalleryItem';
+  contentfulMetadata: ContentfulMetadata;
+  galleryItemName?: Maybe<Scalars['String']['output']>;
+  imagesCollection?: Maybe<AssetCollection>;
+  linkedFrom?: Maybe<GalleryItemLinkingCollections>;
+  sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/galleryItem) */
+export type GalleryItemGalleryItemNameArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/galleryItem) */
+export type GalleryItemImagesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/galleryItem) */
+export type GalleryItemLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type GalleryItemCollection = {
+  __typename?: 'GalleryItemCollection';
+  items: Array<Maybe<GalleryItem>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type GalleryItemFilter = {
+  AND?: InputMaybe<Array<InputMaybe<GalleryItemFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<GalleryItemFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  galleryItemName?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_contains?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  galleryItemName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  galleryItemName_not?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  imagesCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type GalleryItemLinkingCollections = {
+  __typename?: 'GalleryItemLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  productCollection?: Maybe<ProductCollection>;
+};
+
+
+export type GalleryItemLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type GalleryItemLinkingCollectionsProductCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<GalleryItemLinkingCollectionsProductCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum GalleryItemLinkingCollectionsProductCollectionOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum GalleryItemOrder {
+  GalleryItemNameAsc = 'galleryItemName_ASC',
+  GalleryItemNameDesc = 'galleryItemName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 /** Product images for desktop, tablet and mobile. [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/image) */
 export type Image = Entry & {
   __typename?: 'Image';
@@ -559,6 +708,7 @@ export type Image = Entry & {
   name?: Maybe<Scalars['String']['output']>;
   sys: Sys;
   tablet?: Maybe<Asset>;
+  tabletPdp?: Maybe<Asset>;
 };
 
 
@@ -594,6 +744,13 @@ export type ImageTabletArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
+/** Product images for desktop, tablet and mobile. [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/image) */
+export type ImageTabletPdpArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 export type ImageCollection = {
   __typename?: 'ImageCollection';
   items: Array<Maybe<Image>>;
@@ -616,6 +773,7 @@ export type ImageFilter = {
   name_not_contains?: InputMaybe<Scalars['String']['input']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
+  tabletPdp_exists?: InputMaybe<Scalars['Boolean']['input']>;
   tablet_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -665,10 +823,14 @@ export type ImageLinkingCollectionsProductCollectionArgs = {
 };
 
 export enum ImageLinkingCollectionsProductCollectionOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -772,15 +934,17 @@ export type Product = Entry & {
   contentfulMetadata: ContentfulMetadata;
   description?: Maybe<ProductDescription>;
   features?: Maybe<ProductFeatures>;
-  galleryCollection?: Maybe<AssetCollection>;
-  galleryDesktopCollection?: Maybe<AssetCollection>;
-  galleryTabletCollection?: Maybe<AssetCollection>;
+  gallerydesktop?: Maybe<GalleryItem>;
+  gallerymobile?: Maybe<GalleryItem>;
+  gallerytablet?: Maybe<GalleryItem>;
   images?: Maybe<Image>;
+  isNew?: Maybe<Scalars['Boolean']['output']>;
   linkedFrom?: Maybe<ProductLinkingCollections>;
   name?: Maybe<Scalars['String']['output']>;
   price?: Maybe<Scalars['Float']['output']>;
   productBoxContentCollection?: Maybe<ProductProductBoxContentCollection>;
   relatedProductsCollection?: Maybe<ProductRelatedProductsCollection>;
+  slug?: Maybe<Scalars['String']['output']>;
   sys: Sys;
 };
 
@@ -805,29 +969,23 @@ export type ProductFeaturesArgs = {
 
 
 /** product [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/product) */
-export type ProductGalleryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
+export type ProductGallerydesktopArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
 /** product [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/product) */
-export type ProductGalleryDesktopCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
+export type ProductGallerymobileArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
 /** product [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/product) */
-export type ProductGalleryTabletCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
+export type ProductGallerytabletArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -835,6 +993,12 @@ export type ProductGalleryTabletCollectionArgs = {
 export type ProductImagesArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** product [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/product) */
+export type ProductIsNewArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -875,6 +1039,12 @@ export type ProductRelatedProductsCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ProductFilter>;
+};
+
+
+/** product [See type definition](https://app.contentful.com/spaces/tl62fqhd48qy/content_types/product) */
+export type ProductSlugArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProductCollection = {
@@ -947,11 +1117,17 @@ export type ProductFilter = {
   features_contains?: InputMaybe<Scalars['String']['input']>;
   features_exists?: InputMaybe<Scalars['Boolean']['input']>;
   features_not_contains?: InputMaybe<Scalars['String']['input']>;
-  galleryCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  galleryDesktopCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  galleryTabletCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  gallerydesktop?: InputMaybe<CfGalleryItemNestedFilter>;
+  gallerydesktop_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  gallerymobile?: InputMaybe<CfGalleryItemNestedFilter>;
+  gallerymobile_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  gallerytablet?: InputMaybe<CfGalleryItemNestedFilter>;
+  gallerytablet_exists?: InputMaybe<Scalars['Boolean']['input']>;
   images?: InputMaybe<CfImageNestedFilter>;
   images_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  isNew?: InputMaybe<Scalars['Boolean']['input']>;
+  isNew_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  isNew_not?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   name_contains?: InputMaybe<Scalars['String']['input']>;
   name_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -972,6 +1148,13 @@ export type ProductFilter = {
   productBoxContentCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
   relatedProducts?: InputMaybe<CfProductNestedFilter>;
   relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  slug_contains?: InputMaybe<Scalars['String']['input']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug_not?: InputMaybe<Scalars['String']['input']>;
+  slug_not_contains?: InputMaybe<Scalars['String']['input']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
@@ -999,10 +1182,14 @@ export type ProductLinkingCollectionsProductCollectionArgs = {
 };
 
 export enum ProductLinkingCollectionsProductCollectionOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1014,10 +1201,14 @@ export enum ProductLinkingCollectionsProductCollectionOrder {
 }
 
 export enum ProductOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1060,10 +1251,14 @@ export type ProductRelatedProductsCollection = {
 };
 
 export enum ProductRelatedProductsCollectionOrder {
+  IsNewAsc = 'isNew_ASC',
+  IsNewDesc = 'isNew_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1083,6 +1278,8 @@ export type Query = {
   category?: Maybe<Category>;
   categoryCollection?: Maybe<CategoryCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  galleryItem?: Maybe<GalleryItem>;
+  galleryItemCollection?: Maybe<GalleryItemCollection>;
   image?: Maybe<Image>;
   imageCollection?: Maybe<ImageCollection>;
   product?: Maybe<Product>;
@@ -1148,6 +1345,23 @@ export type QueryEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<EntryFilter>;
+};
+
+
+export type QueryGalleryItemArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryGalleryItemCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<GalleryItemOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<GalleryItemFilter>;
 };
 
 
@@ -1274,6 +1488,22 @@ export type CfCategoryNestedFilter = {
   slug_not_contains?: InputMaybe<Scalars['String']['input']>;
   slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
+  thumbnail_exists?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type CfGalleryItemNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfGalleryItemNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfGalleryItemNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  galleryItemName?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_contains?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  galleryItemName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  galleryItemName_not?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  galleryItemName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  imagesCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sys?: InputMaybe<SysFilter>;
 };
 
 export type CfImageNestedFilter = {
@@ -1290,6 +1520,7 @@ export type CfImageNestedFilter = {
   name_not_contains?: InputMaybe<Scalars['String']['input']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
+  tabletPdp_exists?: InputMaybe<Scalars['Boolean']['input']>;
   tablet_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1304,10 +1535,13 @@ export type CfProductNestedFilter = {
   features_contains?: InputMaybe<Scalars['String']['input']>;
   features_exists?: InputMaybe<Scalars['Boolean']['input']>;
   features_not_contains?: InputMaybe<Scalars['String']['input']>;
-  galleryCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  galleryDesktopCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  galleryTabletCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  gallerydesktop_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  gallerymobile_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  gallerytablet_exists?: InputMaybe<Scalars['Boolean']['input']>;
   images_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  isNew?: InputMaybe<Scalars['Boolean']['input']>;
+  isNew_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  isNew_not?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   name_contains?: InputMaybe<Scalars['String']['input']>;
   name_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1326,10 +1560,33 @@ export type CfProductNestedFilter = {
   price_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
   productBoxContentCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
   relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  slug_contains?: InputMaybe<Scalars['String']['input']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug_not?: InputMaybe<Scalars['String']['input']>;
+  slug_not_contains?: InputMaybe<Scalars['String']['input']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
 export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCategoriesQuery = { __typename?: 'Query', categoryCollection?: { __typename?: 'CategoryCollection', items: Array<{ __typename?: 'Category', name?: string | null } | null> } | null };
+export type GetCategoriesQuery = { __typename?: 'Query', categoryCollection?: { __typename?: 'CategoryCollection', items: Array<{ __typename?: 'Category', name?: string | null, thumbnail?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
+
+export type GetProductListQueryVariables = Exact<{
+  category?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetProductListQuery = { __typename?: 'Query', productCollection?: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name?: string | null, isNew?: boolean | null, slug?: string | null, description?: { __typename?: 'ProductDescription', json: any } | null, images?: { __typename?: 'Image', desktop?: { __typename?: 'Asset', url?: string | null } | null, tablet?: { __typename?: 'Asset', url?: string | null } | null, mobile?: { __typename?: 'Asset', url?: string | null } | null } | null, sys: { __typename?: 'Sys', id: string } } | null> } | null };
+
+export type GetProductPageInfoQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetProductPageInfoQuery = { __typename?: 'Query', productCollection?: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name?: string | null, price?: number | null, isNew?: boolean | null, description?: { __typename?: 'ProductDescription', json: any } | null, features?: { __typename?: 'ProductFeatures', json: any } | null, productBoxContentCollection?: { __typename?: 'ProductProductBoxContentCollection', items: Array<{ __typename?: 'BoxContent', quantity?: number | null, item?: string | null } | null> } | null, images?: { __typename?: 'Image', desktop?: { __typename?: 'Asset', url?: string | null } | null, tabletPdp?: { __typename?: 'Asset', url?: string | null } | null, mobile?: { __typename?: 'Asset', url?: string | null } | null } | null } | null> } | null };
+
+export type GetPdpImagesFragment = { __typename?: 'Product', images?: { __typename?: 'Image', desktop?: { __typename?: 'Asset', url?: string | null } | null, tabletPdp?: { __typename?: 'Asset', url?: string | null } | null, mobile?: { __typename?: 'Asset', url?: string | null } | null } | null };

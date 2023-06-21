@@ -1,6 +1,5 @@
 'use client';
 
-const endpoint = process.env.ENDPOINT_CONTENTFUL as string;
 import {
   ApolloClient,
   ApolloLink,
@@ -16,9 +15,9 @@ import {
 function makeClient() {
   const httpLink = new HttpLink({
     // https://studio.apollographql.com/public/spacex-l4uc6p/
-    uri: endpoint,
+    uri: process.env.ENDPOINT_CONTENTFUL,
     headers: {
-      authorization: `Bearer ${process.env.CONTENT_DELIVERY_KEY}`,
+      Authorization: 'Bearer ' + process.env.CONTENT_DELIVERY_KEY,
     },
   });
 

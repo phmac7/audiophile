@@ -1,4 +1,5 @@
 import { AudiophileBio, Categories } from '@/components/organisms';
+import { Suspense } from 'react';
 
 export default function RootLayout({
   children,
@@ -8,7 +9,9 @@ export default function RootLayout({
   return (
     <>
       {children}
-      <Categories />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Categories />
+      </Suspense>
       <AudiophileBio />
     </>
   );

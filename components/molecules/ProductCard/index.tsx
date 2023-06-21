@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styles from './ProductCard.module.scss';
 import Image from 'next/image';
 import { Button, H2, Overline, Paragraph } from '@/components/atoms';
@@ -12,7 +12,7 @@ export interface ProductCardProps {
   desktopImgUrl: string;
   title: string;
   description: string;
-  isNew?: boolean;
+  isNew?: boolean | null | undefined;
   indexInArray: number;
   slug: string;
 }
@@ -27,18 +27,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
   indexInArray,
   slug,
 }) => {
+  const [imageSize, setImageSize] = useState<string>(desktopImgUrl);
   const { width } = useWindowSize();
 
-  const getImage = () => {
-    if (width < 768) {
-      return mobileImgUrl;
-    }
-    if (width < 1024) {
-      return tabletImgUrl;
-    }
-    return desktopImgUrl;
-  };
-
+  useLayoutEffect(() => {
+    const getSize = () => {
+      if (width < 468) {
+        setImageSize(mobileImgUrl);
+        return;
+      }
+      if (width < 1024) {
+        setImageSize(tabletImgUrl);
+        return;
+      }
+      setImageSize(desktopImgUrl);
+    };
+    getSize();
+  }, [width]);
   const isEven = () => {
     return indexInArray % 2 === 0;
   };
@@ -55,12 +60,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
       >
         <div className={styles.card__img}>
           <Image
-            src={getImage()}
+            src={imageSize}
             alt={title}
             fill
             sizes="fill"
             style={{ objectFit: 'cover' }}
-            priority={getImage() === mobileImgUrl}
+            priority={imageSize === desktopImgUrl}
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN89h8AAtEB5wrzxXEAAAAASUVORK5CYII="
+            placeholder="blur"
           />
         </div>
       </Link>
@@ -77,7 +84,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <Paragraph text={description} />
         </div>
         <div className={styles.card__btn}>
-          <Link href={'/'}>
+          <Link href={'/products/' + slug}>
             <Button label="see product" />
           </Link>
         </div>

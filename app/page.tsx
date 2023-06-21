@@ -4,18 +4,21 @@ import {
   FeaturedProducts,
 } from '@/components/organisms';
 
-import { getClient } from '../GraphQL/graphQLClient';
-import { GET_CATEGORIES } from '@/GraphQL/queries';
-import { GetCategoriesQuery } from '@/GraphQL/schema';
+import { getClient } from '../graphQL/graphQLClient';
+import { GET_CATEGORIES } from '@/graphQL/queries';
+import { GetCategoriesQuery } from '@/graphQL/schema';
+import { Suspense } from 'react';
 
 export default async function Home() {
-  const client = getClient();
-  const { data }: { data: GetCategoriesQuery } = await client.query({
-    query: GET_CATEGORIES,
-  });
+  //   const client = getClient();
+  //   const { data }: { data: GetCategoriesQuery } = await client.query({
+  //     query: GET_CATEGORIES,
+  //   });
   return (
     <>
-      <Categories />
+      <Suspense fallback={<p>loading...</p>}>
+        <Categories />
+      </Suspense>
       <FeaturedProducts />
       <AudiophileBio />
     </>
