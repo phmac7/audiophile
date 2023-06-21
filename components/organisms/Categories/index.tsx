@@ -1,39 +1,46 @@
+'use client';
+
 import React from 'react';
 import styles from './Categories.module.scss';
 import { Category } from '@/components/molecules';
+import { GetCategoriesQuery } from '@/graphQL/schema';
+import { GET_CATEGORIES } from '@/graphQL/queries';
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 
-export interface CategoriesProps {}
-
-const Categories: React.FC<CategoriesProps> = () => {
+const Categories: React.FC = () => {
+  const { data }: { data: GetCategoriesQuery } =
+    useSuspenseQuery(GET_CATEGORIES);
+  const categoriesData = data.categoryCollection?.items;
   return (
     <section className={styles.categories}>
       <ul className={styles.categories__list}>
-        <li className={styles.categories__item}>
-          <Category category="headphones" />
-        </li>
-        <li className={styles.categories__item}>
-          <Category category="speakers" />
-        </li>
-        <li className={styles.categories__item}>
-          <Category category="earphones" />
-        </li>
+        {categoriesData?.map((category) => (
+          <li key={category?.name} className={styles.categories__item}>
+            <Category
+              category={category?.name!}
+              url={category?.thumbnail?.url!}
+            />
+          </li>
+        ))}
       </ul>
     </section>
   );
 };
 
-export const CategoriesOnMenu: React.FC<CategoriesProps> = () => {
+export const CategoriesOnMenu: React.FC = () => {
+  const { data }: { data: GetCategoriesQuery } =
+    useSuspenseQuery(GET_CATEGORIES);
+  const categoriesData = data.categoryCollection?.items;
   return (
     <ul className={styles.categories__list}>
-      <li className={styles.categories__item}>
-        <Category category="headphones" />
-      </li>
-      <li className={styles.categories__item}>
-        <Category category="speakers" />
-      </li>
-      <li className={styles.categories__item}>
-        <Category category="earphones" />
-      </li>
+      {categoriesData?.map((category) => (
+        <li key={category?.name} className={styles.categories__item}>
+          <Category
+            category={category?.name!}
+            url={category?.thumbnail?.url!}
+          />
+        </li>
+      ))}
     </ul>
   );
 };
