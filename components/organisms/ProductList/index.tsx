@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import data from '@/data.json';
 import ProductCard from '@/components/molecules/ProductCard';
 import styles from './ProductList.module.scss';
 
@@ -12,7 +11,7 @@ export interface ProductListProps {
         isNew?: boolean | null;
         slug?: string | null;
         description?: { __typename?: 'ProductDescription'; json: any } | null;
-        images?: {
+        productImages?: {
           __typename?: 'Image';
           desktop?: { __typename?: 'Asset'; url?: string | null } | null;
           tablet?: { __typename?: 'Asset'; url?: string | null } | null;
@@ -24,10 +23,10 @@ export interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ productList }) => {
-  if (productList === undefined) {
+  if (productList?.length === 0 || productList?.length === undefined) {
     return (
       <section className={styles.productList}>
-        Ooops it seems that we don't have any product
+        Ooops it seems that we don't have any product for this section yet
       </section>
     );
   }
@@ -42,9 +41,9 @@ const ProductList: React.FC<ProductListProps> = ({ productList }) => {
           key={product?.sys.id!}
           title={product?.name!}
           description={product?.description?.json.content[0].content[0].value}
-          desktopImgUrl={product?.images?.desktop?.url!}
-          mobileImgUrl={product?.images?.mobile?.url!}
-          tabletImgUrl={product?.images?.tablet?.url!}
+          desktopImgUrl={product?.productImages?.desktop?.url!}
+          mobileImgUrl={product?.productImages?.mobile?.url!}
+          tabletImgUrl={product?.productImages?.tablet?.url!}
           isNew={product?.isNew}
           indexInArray={index}
           slug={product?.slug!}

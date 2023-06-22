@@ -22,7 +22,7 @@ export const GET_PRODUCTLIST = gql`
           json
         }
         isNew
-        images {
+        productImages {
           desktop {
             url
           }
@@ -46,7 +46,6 @@ export const GET_PRODUCTPAGE_INFO = gql`
   query getProductPageINFO($slug: String) {
     productCollection(where: { slug: $slug }) {
       items {
-        ...GetPDPImages
         name
         price
         isNew
@@ -62,19 +61,17 @@ export const GET_PRODUCTPAGE_INFO = gql`
             item
           }
         }
-      }
-    }
-  }
-  fragment GetPDPImages on Product {
-    images {
-      desktop {
-        url
-      }
-      tabletPdp {
-        url
-      }
-      mobile {
-        url
+        productImages {
+          mobile {
+            url
+          }
+          tabletPdp {
+            url
+          }
+          desktop {
+            url
+          }
+        }
       }
     }
   }

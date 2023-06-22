@@ -10,7 +10,6 @@ const Headphones = async () => {
     variables: { category: 'Headphones' },
   });
   const productList = data.productCollection?.items;
-  console.log(productList);
   return <ProductList productList={productList} />;
 };
 

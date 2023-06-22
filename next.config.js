@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {images: {
+    protocol: 'https',
+    domains: ['images.ctfassets.net']
+}}
 
-module.exports = {
-    images: {
-        protocol: 'https',
-        domains: ['images.ctfassets.net']
-    },
-    nextConfig
-}
+module.exports = nextConfig
