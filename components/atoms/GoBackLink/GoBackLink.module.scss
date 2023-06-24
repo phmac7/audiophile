@@ -1,0 +1,10 @@
+.goback {
+  border: none;
+  background-color: transparent;
+  padding: 3rem 3rem 3rem 0;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary);
+  }
+}

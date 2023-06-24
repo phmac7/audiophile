@@ -10,11 +10,10 @@ import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 const Categories: React.FC = () => {
   const { data }: { data: GetCategoriesQuery } =
     useSuspenseQuery(GET_CATEGORIES);
-  const categoriesData = data.categoryCollection?.items;
   return (
     <section className={styles.categories}>
       <ul className={styles.categories__list}>
-        {categoriesData?.map((category) => (
+        {data.categoryCollection?.items?.map((category) => (
           <li key={category?.name} className={styles.categories__item}>
             <Category
               category={category?.name!}
@@ -30,10 +29,9 @@ const Categories: React.FC = () => {
 export const CategoriesOnMenu: React.FC = () => {
   const { data }: { data: GetCategoriesQuery } =
     useSuspenseQuery(GET_CATEGORIES);
-  const categoriesData = data.categoryCollection?.items;
   return (
     <ul className={styles.categories__list}>
-      {categoriesData?.map((category) => (
+      {data.categoryCollection?.items?.map((category) => (
         <li key={category?.name} className={styles.categories__item}>
           <Category
             category={category?.name!}

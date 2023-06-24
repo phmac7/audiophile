@@ -1,85 +1,83 @@
 .cart {
-        position: absolute;
-        top: 100px;
-        right: 2.4rem;
-        z-index: -1;
-        background-color: #fff;
-        color: #000;
-        border-radius: 10px;
-        width: 26.7rem;
-        padding: 3rem;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
+  position: absolute;
+  top: 100px;
+  right: 2.4rem;
+  z-index: -1;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  width: 26.7rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 
-        @media only screen and (min-width: 768px){
-            width: 31.7rem;
-            right: 4rem;
-        }
-        @media only screen and (min-width: 1024px){
-            right: 10rem;
-        }
-        @media only screen and (min-width: 1300px){
-            right: 13rem;
-        }
-        @media only screen and (min-width: 1440px){
-            right: 15rem;
-        }
-        @media only screen and (min-width: 1600px){
-            right: 25rem;
-        }
-        @media only screen and (min-width: 1800px){
-            right: 35rem;
-        }
-        @media only screen and (min-width: 1900px){
-            right: 40rem;
-        }
-        @media only screen and (min-width: 2000px){
-            right: 45rem;
-        }
-        @media only screen and (min-width: 2500px){
-            right: 70rem;
-        }
-        &Backdrop {
-                position: absolute;
-                background-color: rgba(#000, $alpha: .7);
-                height: 100vh;
-                width: 100%;
-                z-index: -2;
-            
-        }
+  @media only screen and (min-width: 768px) {
+    width: 31.7rem;
+    right: 4rem;
+  }
+  @media only screen and (min-width: 1024px) {
+    right: 10rem;
+  }
+  @media only screen and (min-width: 1300px) {
+    right: 13rem;
+  }
+  @media only screen and (min-width: 1440px) {
+    right: 15rem;
+  }
+  @media only screen and (min-width: 1600px) {
+    right: 25rem;
+  }
+  @media only screen and (min-width: 1800px) {
+    right: 35rem;
+  }
+  @media only screen and (min-width: 1900px) {
+    right: 40rem;
+  }
+  @media only screen and (min-width: 2000px) {
+    right: 45rem;
+  }
+  @media only screen and (min-width: 2500px) {
+    right: 70rem;
+  }
+  &Backdrop {
+    position: absolute;
+    background-color: rgba(#000, $alpha: 0.7);
+    height: 100vh;
+    width: 100%;
+    z-index: -2;
+  }
 
-        &Heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            &Title{
-                text-transform: uppercase;
-                font-size: 1.8rem;
-                letter-spacing: 1.29px;
-                font-weight: 700;
-            }
-            &Btn {
-                background-color: transparent;
-                border: none;
-                text-decoration: underline;
-                opacity: .5;
-                cursor: pointer;
-                font-weight: 500;
-            }
-        }
-        &Total {
-            display: flex;
-            justify-content: space-between;
-            &Title{
-                text-transform: uppercase;
-                opacity: .7;
-                font-weight: 500;
-            }
-            &Value{
-                font-size: 1.8rem;
-                font-weight: 700;
-            }
-        }
-    
+  &Heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &Title {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      letter-spacing: 1.29px;
+      font-weight: 700;
+    }
+    &Btn {
+      background-color: transparent;
+      border: none;
+      text-decoration: underline;
+      opacity: 0.5;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+  &Total {
+    display: flex;
+    justify-content: space-between;
+    &Title {
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-weight: 500;
+    }
+    &Value {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+  }
 }

@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
       : document.body.classList.remove('navbar-open');
 
     width >= 1024 ? closeMenu() : null;
-  }, [isMenuOpen, width]);
+  }, [isMenuOpen, width, closeMenu]);
 
   const toggleMenu = () => {
     if (isCartOpen) {

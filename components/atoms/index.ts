@@ -1,9 +1,10 @@
-export {default as Button} from './Button'
-export {default as Overline} from './Overline'
-export {default as H1} from './Heading/H1'
-export {default as H2} from './Heading/H2'
-export {default as H3} from './Heading/H3'
-export {default as H4} from './Heading/H4'
-export {default as H5} from './Heading/H5'
-export {default as H6} from './Heading/H6'
-export {default as Paragraph} from './Paragraph'
+export { default as Button } from './Button';
+export { default as Overline } from './Overline';
+export { default as H1 } from './Heading/H1';
+export { default as H2 } from './Heading/H2';
+export { default as H3 } from './Heading/H3';
+export { default as H4 } from './Heading/H4';
+export { default as H5 } from './Heading/H5';
+export { default as H6 } from './Heading/H6';
+export { default as Paragraph } from './Paragraph';
+export { default as AddToCart } from './AddToCart';

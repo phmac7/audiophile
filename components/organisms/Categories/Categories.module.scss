@@ -1,20 +1,18 @@
 .categories {
-&__item {
+  &__item {
     width: 100%;
-}
-    &__list {
-        list-style: none;
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 6.8rem;
-        justify-items: center;
-        
-        @media only screen and (min-width: 768px) {
-            grid-template-columns: repeat(3, 1fr);
-            column-gap: 1rem;
-            justify-items: normal;
-        }
+  }
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 6.8rem;
+    justify-items: center;
+
+    @media only screen and (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1rem;
+      justify-items: normal;
     }
-
-
+  }
 }

@@ -1,0 +1,35 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55rem;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    font-size: 1.5rem;
+    line-height: 25px;
+    font-weight: 500;
+    color: rgba($color: #000, $alpha: 0.7);
+
+    &Quantity {
+      color: var(--primary);
+      display: inline-block;
+      width: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}

@@ -5,9 +5,16 @@
   --dark-strong: #101010;
   --secondary: #f1f1f1;
   --secondary-light: #fafafa;
+
+  /*breakpoints*/
+  --tablet: 768px;
+  --desktop-sm: 1024px;
+  --desktop: 1440px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
@@ -15,23 +22,24 @@
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    box-sizing: border-box;
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    padding-top: 85px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  padding-top: 85px;
 }
 
 body.navbar-open {
-    height: 100%;
-    overflow-y: hidden;
+  height: 100%;
+  overflow-y: hidden;
 }
 
-a, a:visited {
-    text-decoration: inherit;
-    color: inherit;
+a,
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
 }

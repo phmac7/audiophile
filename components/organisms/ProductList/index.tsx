@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import ProductCard from '@/components/molecules/ProductCard';
+import { ProductCard } from '@/components/molecules';
 import styles from './ProductList.module.scss';
 
 export interface ProductListProps {
@@ -26,7 +26,7 @@ const ProductList: React.FC<ProductListProps> = ({ productList }) => {
   if (productList?.length === 0 || productList?.length === undefined) {
     return (
       <section className={styles.productList}>
-        Ooops it seems that we don't have any product for this section yet
+        Ooops it seems that we don&apos;t have any product for this section yet
       </section>
     );
   }

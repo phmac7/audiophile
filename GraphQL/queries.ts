@@ -44,7 +44,7 @@ export const GET_PRODUCTLIST = gql`
 
 export const GET_PRODUCTPAGE_INFO = gql`
   query getProductPageINFO($slug: String) {
-    productCollection(where: { slug: $slug }) {
+    productCollection(where: { slug: $slug }, limit: 1) {
       items {
         name
         price
@@ -55,7 +55,7 @@ export const GET_PRODUCTPAGE_INFO = gql`
         features {
           json
         }
-        productBoxContentCollection {
+        productBoxContentCollection(limit: 10) {
           items {
             quantity
             item
@@ -70,6 +70,34 @@ export const GET_PRODUCTPAGE_INFO = gql`
           }
           desktop {
             url
+          }
+        }
+        gallery {
+          mobileCollection(limit: 3) {
+            items {
+              url
+            }
+          }
+          tabletCollection(limit: 3) {
+            items {
+              url
+            }
+          }
+          desktopCollection(limit: 3) {
+            items {
+              url
+            }
+          }
+        }
+        relatedProductsCollection(limit: 3) {
+          items {
+            name
+            slug
+            productImages {
+              desktop {
+                url
+              }
+            }
           }
         }
       }

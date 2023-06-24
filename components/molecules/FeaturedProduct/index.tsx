@@ -37,7 +37,7 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({
       }
     }
     setImageSize(desktopImg);
-  }, [width]);
+  }, [width, mobileImg, tabletImg, desktopImg]);
 
   if (variation === 'primary') {
     return (

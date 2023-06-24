@@ -1,4 +1,4 @@
-import ProductList from '@/components/organisms/ProductList';
+import { ProductList } from '@/components/organisms';
 import { getClient } from '@/graphQL/graphQLClient';
 import { GET_PRODUCTLIST } from '@/graphQL/queries';
 import { GetProductListQuery } from '@/graphQL/schema';

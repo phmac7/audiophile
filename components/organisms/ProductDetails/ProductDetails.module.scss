@@ -1,0 +1,16 @@
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+
+  &__feat {
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+
+    @media only screen and (min-width: 1024px) {
+      flex-direction: row;
+      gap: 10rem;
+    }
+  }
+}

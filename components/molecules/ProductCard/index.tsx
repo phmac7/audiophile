@@ -27,23 +27,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
   indexInArray,
   slug,
 }) => {
-  const [imageSize, setImageSize] = useState<string>(desktopImgUrl);
   const { width } = useWindowSize();
 
-  useLayoutEffect(() => {
-    const getSize = () => {
-      if (width < 468) {
-        setImageSize(mobileImgUrl);
-        return;
-      }
-      if (width < 1024) {
-        setImageSize(tabletImgUrl);
-        return;
-      }
-      setImageSize(desktopImgUrl);
-    };
-    getSize();
-  }, [width]);
+  const getSize = () => {
+    if (width < 468) {
+      return mobileImgUrl;
+    }
+    if (width < 1024) {
+      return tabletImgUrl;
+    }
+    return desktopImgUrl;
+  };
+
   const isEven = () => {
     return indexInArray % 2 === 0;
   };
@@ -60,12 +55,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
       >
         <div className={styles.card__img}>
           <Image
-            src={imageSize}
+            src={getSize()!}
             alt={title}
             fill
             sizes="fill"
             style={{ objectFit: 'cover' }}
-            priority={imageSize === desktopImgUrl}
+            priority={getSize() === desktopImgUrl || getSize() === mobileImgUrl}
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN89h8AAtEB5wrzxXEAAAAASUVORK5CYII="
             placeholder="blur"
           />
