@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './MenuDropDown.module.scss';
 import { CategoriesOnMenu } from '@/components/organisms/Categories';
-import { useStore } from '@/store/store';
+import { usenavbarStore } from '@/store/navbar-store';
 
 const MenuDropDown = () => {
-  const closeMenu = useStore((state) => state.closeMenu);
+  const closeMenu = usenavbarStore((state) => state.closeMenu);
 
   return (
     <>

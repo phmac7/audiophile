@@ -19,14 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ApolloWrapper>
-        <body className={manrope.className}>
+      <body className={manrope.className}>
+        <ApolloWrapper>
           <Navbar />
           <GetHeader />
           <main className={styles.layout}>{children}</main>
           <Footer />
-        </body>
-      </ApolloWrapper>
+        </ApolloWrapper>
+      </body>
     </html>
   );
 }

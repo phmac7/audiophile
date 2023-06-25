@@ -4,9 +4,10 @@ import React, { useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import { CartIcon, HamburguerIcon, Logo } from '@/components/Ions';
 import Link from 'next/link';
-import { useStore } from '@/store/store';
+import { usenavbarStore } from '@/store/navbar-store';
 import { useWindowSize } from 'usehooks-ts';
 import { CartDropDown, MenuDropDown, NavLinks } from '@/components/molecules';
+import { useCartStore } from '@/store/cart-store';
 
 const Navbar: React.FC = () => {
   const {
@@ -16,8 +17,9 @@ const Navbar: React.FC = () => {
     isMenuOpen,
     toggleMenuOpen,
     closeMenu,
-  } = useStore();
+  } = usenavbarStore();
   const { width } = useWindowSize();
+  const cartList = useCartStore((state) => state.itemList);
 
   useEffect(() => {
     isMenuOpen
@@ -77,7 +79,9 @@ const Navbar: React.FC = () => {
         </div>
         <div className={styles.navbar__cart}>
           <button
-            className={styles.navbar__cartIcon}
+            className={`${styles.navbar__cartIcon} ${
+              cartList.length !== 0 ? styles.navbar__cartIconNotification : ''
+            }`}
             onClick={toggleCart}
             title="Cart"
             aria-label="Cart"

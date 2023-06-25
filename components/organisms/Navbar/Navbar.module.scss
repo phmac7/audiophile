@@ -63,6 +63,18 @@
       border: none;
       cursor: pointer;
       padding: 0.6rem;
+      position: relative;
+
+      &Notification::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--primary);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
     }
   }
   &__logo {

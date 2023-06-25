@@ -23,6 +23,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
         price={product?.price}
         title={product?.name}
         image={product?.productImages}
+        id={product?.sys.id!}
       />
       <div className={styles.productDetails__feat}>
         <ProductFeatures

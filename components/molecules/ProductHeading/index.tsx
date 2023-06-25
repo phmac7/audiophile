@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React from 'react';
 import styles from './ProductHeading.module.scss';
 import { AddToCart, H1, H2, Overline, Paragraph } from '@/components/atoms';
 import { useWindowSize } from 'usehooks-ts';
@@ -12,6 +12,7 @@ const ProductHeading: React.FC<ProductHeadingProps> = ({
   description,
   price,
   image,
+  id,
 }) => {
   const { width } = useWindowSize();
   const getImageWidth = () => {
@@ -42,7 +43,12 @@ const ProductHeading: React.FC<ProductHeadingProps> = ({
         <H2 text={title!} />
         <Paragraph text={description!} />
         <span className={styles.product__textPrice}>$ {price}</span>
-        <AddToCart />
+        <AddToCart
+          id={id}
+          imgUrl={image?.mobile?.url!}
+          name={title!}
+          price={price!}
+        />
       </div>
     </div>
   );

@@ -8,3 +8,5 @@ export { default as H5 } from './Heading/H5';
 export { default as H6 } from './Heading/H6';
 export { default as Paragraph } from './Paragraph';
 export { default as AddToCart } from './AddToCart';
+export { default as GoBackLink } from './GoBackLink';
+export { default as ToggleQuantity } from './ToggleQuantity';

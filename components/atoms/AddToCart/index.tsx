@@ -1,37 +1,40 @@
 'use client';
 import React, { useState } from 'react';
 import Button from '../Button';
+import ToggleQuantity from '../ToggleQuantity';
 import styles from './AddToCart.module.scss';
+import { useCartStore } from '@/store/cart-store';
 
-const AddToCart = () => {
+interface AddToCartProps {
+  id: string;
+  name: string;
+  price: number;
+  imgUrl: string;
+}
+
+const AddToCart: React.FC<AddToCartProps> = ({ id, name, price, imgUrl }) => {
+  const addItemToCart = useCartStore((state) => state.addItem);
   const [quantity, setQuantity] = useState<number>(1);
-
   const decreaseQuantity = () => {
     quantity > 0 && setQuantity((prev) => prev - 1);
+  };
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
   };
 
   return (
     <div className={styles.addCart}>
-      <div className={styles.addCart__setQuantity}>
-        <button
-          className={styles.addCart__decrease}
-          title="decrease"
-          aria-label="decrease quantity"
-          onClick={decreaseQuantity}
-        >
-          <span className={styles.addCart__decreaseIcon}></span>
-        </button>
-        <span className={styles.addCart__quantity}>{quantity}</span>
-        <button
-          className={styles.addCart__increase}
-          title="increase"
-          aria-label="increase quantity"
-          onClick={() => setQuantity((prev) => prev + 1)}
-        >
-          <span className={styles.addCart__increaseIcon}></span>
-        </button>
-      </div>
-      <Button label="add to cart" />
+      <ToggleQuantity
+        quantity={quantity}
+        decreaseQuantity={decreaseQuantity}
+        increaseQuantity={increaseQuantity}
+      />
+      <Button
+        label="add to cart"
+        onClick={() =>
+          addItemToCart({ id: id, quantity: quantity, name, price, imgUrl })
+        }
+      />
     </div>
   );
 };

@@ -3,6 +3,7 @@ export interface ProductDetailsProps {
     | {
         __typename?: 'Product';
         name?: string | null;
+        sys: { __typename?: 'Sys'; id: string };
         price?: number | null;
         isNew?: boolean | null;
         description?: {
@@ -75,6 +76,7 @@ export interface ProductHeadingProps {
   title: string | null | undefined;
   description: string | null | undefined;
   price: number | null | undefined;
+  id: string;
   image:
     | {
         __typename?: 'Image';

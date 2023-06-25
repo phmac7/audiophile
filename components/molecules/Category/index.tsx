@@ -4,7 +4,7 @@ import styles from './Category.module.scss';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
 import Link from 'next/link';
-import { useStore } from '@/store/store';
+import { usenavbarStore } from '@/store/navbar-store';
 
 export interface CategoryProps {
   category: string;
@@ -12,7 +12,7 @@ export interface CategoryProps {
 }
 
 const Category: React.FC<CategoryProps> = ({ category, url }) => {
-  const { closeMenu, isMenuOpen } = useStore();
+  const { closeMenu, isMenuOpen } = usenavbarStore();
 
   const getCategoryImage = () => {
     return (

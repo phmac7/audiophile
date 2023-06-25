@@ -47,6 +47,9 @@ export const GET_PRODUCTPAGE_INFO = gql`
     productCollection(where: { slug: $slug }, limit: 1) {
       items {
         name
+        sys {
+          id
+        }
         price
         isNew
         description {
@@ -100,6 +103,16 @@ export const GET_PRODUCTPAGE_INFO = gql`
             }
           }
         }
+      }
+    }
+  }
+`;
+
+export const GET_PRODUCT = gql`
+  query getProduct {
+    productCollection {
+      items {
+        name
       }
     }
   }
