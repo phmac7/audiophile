@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import ProductCard, { ProductCardProps } from '.';
+import ProductCard from '.';
 import data from '@/data.json';
+import { ProductCardProps } from '@/models/componentsProps';
 
 const product = data[0];
 

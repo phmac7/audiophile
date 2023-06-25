@@ -1,14 +1,17 @@
-import type { Preview } from "@storybook/react";
-import {themes} from "@storybook/theming"
-import '@/styles/globals.css'
-import '@/styles/font-sb.css'
+import type { Preview } from '@storybook/react';
+import { themes } from '@storybook/theming';
+import '@/styles/globals.css';
+import '@/styles/font-sb.css';
 
 const preview: Preview = {
   parameters: {
     docs: {
-        theme: themes.dark
+      theme: themes.dark,
     },
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    nextjs: {
+      appDirectory: true,
+    },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

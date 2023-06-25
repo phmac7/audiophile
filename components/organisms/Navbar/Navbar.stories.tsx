@@ -9,13 +9,13 @@ export default {
 
 export const Default: StoryObj = {};
 
-export const MenuOpen: StoryObj = {
-  decorators: [
-    () => {
-      return <MenuDropDown />;
-    },
-  ],
-};
+// export const MenuOpen: StoryObj = {
+//   decorators: [
+//     () => {
+//       return <MenuDropDown />;
+//     },
+//   ],
+// };
 
 export const CartOpen: StoryObj = {
   decorators: [
