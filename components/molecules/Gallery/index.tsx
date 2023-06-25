@@ -1,5 +1,4 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import styles from './Gallery.module.scss';
 import Image from 'next/image';
 import { useWindowSize } from 'usehooks-ts';

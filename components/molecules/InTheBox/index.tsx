@@ -1,16 +1,6 @@
 import { H3 } from '@/components/atoms';
-import React from 'react';
 import styles from './InTheBox.module.scss';
-
-interface InTheBoxProps {
-  items:
-    | ({
-        __typename?: 'BoxContent' | undefined;
-        quantity?: number | null | undefined;
-        item?: string | null | undefined;
-      } | null)[]
-    | undefined;
-}
+import { InTheBoxProps } from '@/models/componentsProps';
 
 const InTheBox: React.FC<InTheBoxProps> = ({ items }) => {
   return (

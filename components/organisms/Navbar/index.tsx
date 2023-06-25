@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import { CartIcon, HamburguerIcon, Logo } from '@/components/Ions';
+import { CartDropDown, MenuDropDown, NavLinks } from '@/components/molecules';
 import Link from 'next/link';
 import { usenavbarStore } from '@/store/navbar-store';
 import { useWindowSize } from 'usehooks-ts';
-import { CartDropDown, MenuDropDown, NavLinks } from '@/components/molecules';
 import { useCartStore } from '@/store/cart-store';
 
 const Navbar: React.FC = () => {

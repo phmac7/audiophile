@@ -1,4 +1,3 @@
-import React, { Suspense } from 'react';
 import styles from './CartDropDown.module.scss';
 import { usenavbarStore } from '@/store/navbar-store';
 import { Button } from '@/components/atoms';

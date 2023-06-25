@@ -1,13 +1,8 @@
 import { Button, H3, H4 } from '@/components/atoms';
-import React from 'react';
 import styles from './YouMayAlsoLike.module.scss';
 import Image from 'next/image';
-import { ProductDetailsProps } from '@/models/componentsProps';
 import Link from 'next/link';
-
-export interface YouMayAlsoLikeProps {
-  products: ProductDetailsProps['similarProducts'];
-}
+import { YouMayAlsoLikeProps } from '@/models/componentsProps';
 
 const YouMayAlsoLike: React.FC<YouMayAlsoLikeProps> = ({ products }) => {
   return (
@@ -15,7 +10,7 @@ const YouMayAlsoLike: React.FC<YouMayAlsoLikeProps> = ({ products }) => {
       <H3 text="you may also like" />
       <div className={styles.like__itemsContainer}>
         {products?.items.map((item) => (
-          <article className={styles.like__item}>
+          <article key={item?.slug} className={styles.like__item}>
             <div className={styles.like__backgroundImg}>
               <Link
                 href={'/products/' + item?.slug}

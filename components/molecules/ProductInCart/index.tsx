@@ -1,16 +1,9 @@
 'use client';
 import { ToggleQuantity } from '@/components/atoms';
 import Image from 'next/image';
-import React from 'react';
 import styles from './ProductInCart.module.scss';
 import { useCartStore } from '@/store/cart-store';
-
-interface ProductInCartProps {
-  id?: string;
-  name: string;
-  price: number;
-  imgUrl: string;
-}
+import { ProductInCartProps } from '@/models/componentsProps';
 
 const ProductInCart: React.FC<ProductInCartProps> = ({
   name,

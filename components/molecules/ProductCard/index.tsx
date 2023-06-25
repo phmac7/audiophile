@@ -1,21 +1,10 @@
 'use client';
-import React, { useLayoutEffect, useState } from 'react';
 import styles from './ProductCard.module.scss';
 import Image from 'next/image';
 import { Button, H2, Overline, Paragraph } from '@/components/atoms';
 import { useWindowSize } from 'usehooks-ts';
 import Link from 'next/link';
-
-export interface ProductCardProps {
-  mobileImgUrl: string;
-  tabletImgUrl: string;
-  desktopImgUrl: string;
-  title: string;
-  description: string;
-  isNew?: boolean | null | undefined;
-  indexInArray: number;
-  slug: string;
-}
+import { ProductCardProps } from '@/models/componentsProps';
 
 const ProductCard: React.FC<ProductCardProps> = ({
   mobileImgUrl,

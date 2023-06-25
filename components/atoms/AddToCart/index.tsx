@@ -1,16 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '../Button';
 import ToggleQuantity from '../ToggleQuantity';
 import styles from './AddToCart.module.scss';
 import { useCartStore } from '@/store/cart-store';
-
-interface AddToCartProps {
-  id: string;
-  name: string;
-  price: number;
-  imgUrl: string;
-}
+import { AddToCartProps } from '@/models/componentsProps';
 
 const AddToCart: React.FC<AddToCartProps> = ({ id, name, price, imgUrl }) => {
   const addItemToCart = useCartStore((state) => state.addItem);

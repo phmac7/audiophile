@@ -1,6 +1,4 @@
 'use client';
-
-import React from 'react';
 import styles from './Categories.module.scss';
 import { Category } from '@/components/molecules';
 import { GetCategoriesQuery } from '@/graphQL/schema';

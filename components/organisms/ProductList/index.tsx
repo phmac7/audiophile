@@ -1,26 +1,7 @@
 'use client';
-import React from 'react';
 import { ProductCard } from '@/components/molecules';
 import styles from './ProductList.module.scss';
-
-export interface ProductListProps {
-  productList:
-    | Array<{
-        __typename?: 'Product';
-        name?: string | null;
-        isNew?: boolean | null;
-        slug?: string | null;
-        description?: { __typename?: 'ProductDescription'; json: any } | null;
-        productImages?: {
-          __typename?: 'Image';
-          desktop?: { __typename?: 'Asset'; url?: string | null } | null;
-          tablet?: { __typename?: 'Asset'; url?: string | null } | null;
-          mobile?: { __typename?: 'Asset'; url?: string | null } | null;
-        } | null;
-        sys: { __typename?: 'Sys'; id: string };
-      } | null>
-    | undefined;
-}
+import { ProductListProps } from '@/models/componentsProps';
 
 const ProductList: React.FC<ProductListProps> = ({ productList }) => {
   if (productList?.length === 0 || productList?.length === undefined) {

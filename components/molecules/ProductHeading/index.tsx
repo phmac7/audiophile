@@ -1,8 +1,7 @@
 'use client';
 import Image from 'next/image';
-import React from 'react';
 import styles from './ProductHeading.module.scss';
-import { AddToCart, H1, H2, Overline, Paragraph } from '@/components/atoms';
+import { AddToCart, H2, Overline, Paragraph } from '@/components/atoms';
 import { useWindowSize } from 'usehooks-ts';
 import { ProductHeadingProps } from '@/models/componentsProps';
 

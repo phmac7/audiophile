@@ -1,15 +1,8 @@
 'use client';
 
-import { ItemType, useCartStore } from '@/store/cart-store';
+import { useCartStore } from '@/store/cart-store';
 import styles from './ToggleQuantity.module.scss';
-
-interface ToggleQuantityProps {
-  decreaseQuantity?: any;
-  increaseQuantity?: any;
-  forCart?: boolean;
-  quantity?: number;
-  id?: string;
-}
+import { ToggleQuantityProps } from '@/models/componentsProps';
 
 const ToggleQuantity: React.FC<ToggleQuantityProps> = ({
   decreaseQuantity,

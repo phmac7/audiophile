@@ -1,13 +1,7 @@
 'use client';
-import React from 'react';
+import { ButtonProps } from '@/models/componentsProps';
 import styles from '../Button/Button.module.scss';
 import { RightArrowIcon } from '@/components/Ions';
-
-export interface ButtonProps {
-  label: string;
-  variation?: 'primary' | 'secondary' | 'tertiary';
-  onClick?: () => void;
-}
 
 const Button: React.FC<ButtonProps> = ({
   label,

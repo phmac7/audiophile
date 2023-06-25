@@ -1,10 +1,5 @@
-import React from 'react';
+import { ParagraphProps } from '@/models/componentsProps';
 import styles from './Paragraph.module.scss';
-
-export interface ParagraphProps {
-  text?: string;
-  variation?: 'primary' | 'secondary';
-}
 
 const Paragraph: React.FC<ParagraphProps> = ({
   text,

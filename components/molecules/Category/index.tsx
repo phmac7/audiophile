@@ -1,15 +1,10 @@
 'use client';
-import React from 'react';
 import styles from './Category.module.scss';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
 import Link from 'next/link';
 import { usenavbarStore } from '@/store/navbar-store';
-
-export interface CategoryProps {
-  category: string;
-  url: string;
-}
+import { CategoryProps } from '@/models/componentsProps';
 
 const Category: React.FC<CategoryProps> = ({ category, url }) => {
   const { closeMenu, isMenuOpen } = usenavbarStore();

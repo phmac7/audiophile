@@ -118,3 +118,110 @@ export interface GalleryProps {
     | undefined
     | null;
 }
+
+export interface AddToCartProps {
+  id: string;
+  name: string;
+  price: number;
+  imgUrl: string;
+}
+
+export interface ToggleQuantityProps {
+  decreaseQuantity?: any;
+  increaseQuantity?: any;
+  forCart?: boolean;
+  quantity?: number;
+  id?: string;
+}
+
+export interface ButtonProps {
+  label: string;
+  variation?: 'primary' | 'secondary' | 'tertiary';
+  onClick?: () => void;
+}
+
+export interface HeadingProps {
+  text: string;
+  color?: '#000' | '#FFF' | '#fff';
+}
+
+export interface OverlineProps {
+  text: string;
+  variation?: 'primary' | 'secondary';
+}
+
+export interface ParagraphProps {
+  text?: string;
+  variation?: 'primary' | 'secondary';
+}
+
+export interface CategoryProps {
+  category: string;
+  url: string;
+}
+
+export interface FeaturedProductProps {
+  title: string;
+  variation: 'primary' | 'secondary' | 'tertiary';
+  description?: string;
+  mobileImg: string;
+  desktopImg: string;
+  tabletImg?: string;
+}
+
+export interface InTheBoxProps {
+  items:
+    | ({
+        __typename?: 'BoxContent' | undefined;
+        quantity?: number | null | undefined;
+        item?: string | null | undefined;
+      } | null)[]
+    | undefined;
+}
+
+export interface ProductCardProps {
+  mobileImgUrl: string;
+  tabletImgUrl: string;
+  desktopImgUrl: string;
+  title: string;
+  description: string;
+  isNew?: boolean | null | undefined;
+  indexInArray: number;
+  slug: string;
+}
+
+export interface ProductFeaturesProps {
+  features: string | undefined;
+}
+
+export interface ProductInCartProps {
+  id?: string;
+  name: string;
+  price: number;
+  imgUrl: string;
+}
+export interface YouMayAlsoLikeProps {
+  products: ProductDetailsProps['similarProducts'];
+}
+export interface HeaderProps {
+  pathname: string;
+}
+
+export interface ProductListProps {
+  productList:
+    | Array<{
+        __typename?: 'Product';
+        name?: string | null;
+        isNew?: boolean | null;
+        slug?: string | null;
+        description?: { __typename?: 'ProductDescription'; json: any } | null;
+        productImages?: {
+          __typename?: 'Image';
+          desktop?: { __typename?: 'Asset'; url?: string | null } | null;
+          tablet?: { __typename?: 'Asset'; url?: string | null } | null;
+          mobile?: { __typename?: 'Asset'; url?: string | null } | null;
+        } | null;
+        sys: { __typename?: 'Sys'; id: string };
+      } | null>
+    | undefined;
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Footer.module.scss';
 import { Logo } from '@/components/Ions';
 import { NavLinks, SocialLinks } from '@/components/molecules';

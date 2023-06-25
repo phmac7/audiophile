@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SocialLinks.module.scss';
 import Link from 'next/link';
 import { Facebook, Instagram, Twitter } from '@/components/Ions';

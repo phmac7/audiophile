@@ -1,10 +1,5 @@
-import React from 'react';
+import { HeadingProps } from '@/models/componentsProps';
 import styles from '../Heading.module.scss';
-
-export interface HeadingProps {
-  text: string;
-  color?: '#000' | '#FFF' | '#fff';
-}
 
 const H1: React.FC<HeadingProps> = ({ text, color = '#000' }) => {
   const style = {

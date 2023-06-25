@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { useWindowSize } from 'usehooks-ts';
 import styles from './AudiophileBio.module.scss';
 import Image from 'next/image';

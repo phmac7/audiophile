@@ -1591,9 +1591,7 @@ export type GetProductPageInfoQueryVariables = Exact<{
 
 export type GetProductPageInfoQuery = { __typename?: 'Query', productCollection?: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name?: string | null, price?: number | null, isNew?: boolean | null, sys: { __typename?: 'Sys', id: string }, description?: { __typename?: 'ProductDescription', json: any } | null, features?: { __typename?: 'ProductFeatures', json: any } | null, productBoxContentCollection?: { __typename?: 'ProductProductBoxContentCollection', items: Array<{ __typename?: 'BoxContent', quantity?: number | null, item?: string | null } | null> } | null, productImages?: { __typename?: 'Image', mobile?: { __typename?: 'Asset', url?: string | null } | null, tabletPdp?: { __typename?: 'Asset', url?: string | null } | null, desktop?: { __typename?: 'Asset', url?: string | null } | null } | null, gallery?: { __typename?: 'GalleryItem', mobileCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', url?: string | null } | null> } | null, tabletCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', url?: string | null } | null> } | null, desktopCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', url?: string | null } | null> } | null } | null, relatedProductsCollection?: { __typename?: 'ProductRelatedProductsCollection', items: Array<{ __typename?: 'Product', name?: string | null, slug?: string | null, productImages?: { __typename?: 'Image', desktop?: { __typename?: 'Asset', url?: string | null } | null } | null } | null> } | null } | null> } | null };
 
-export type GetProductCartQueryVariables = Exact<{
-  id: Scalars['String']['input'];
-}>;
+export type GetProductQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProductCartQuery = { __typename?: 'Query', product?: { __typename?: 'Product', price?: number | null, name?: string | null, productImages?: { __typename?: 'Image', mobile?: { __typename?: 'Asset', url?: string | null } | null } | null } | null };
+export type GetProductQuery = { __typename?: 'Query', productCollection?: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name?: string | null } | null> } | null };

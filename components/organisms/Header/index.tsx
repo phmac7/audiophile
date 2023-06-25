@@ -1,10 +1,6 @@
 import { Button, H1, Overline, Paragraph } from '@/components/atoms';
-import React from 'react';
 import styles from './Header.module.scss';
-
-export interface HeaderProps {
-  pathname: string;
-}
+import { HeaderProps } from '@/models/componentsProps';
 
 const Header: React.FC<HeaderProps> = ({ pathname }) => {
   if (pathname === '/') {

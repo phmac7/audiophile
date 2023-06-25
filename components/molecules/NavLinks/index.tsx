@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './NavLinks.module.scss';
 import Link from 'next/link';
 

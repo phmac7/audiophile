@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './FeaturedProducts.module.scss';
 import { FeaturedProduct } from '@/components/molecules';
 

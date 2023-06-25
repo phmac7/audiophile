@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './MenuDropDown.module.scss';
 import { CategoriesOnMenu } from '@/components/organisms/Categories';
 import { usenavbarStore } from '@/store/navbar-store';

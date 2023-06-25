@@ -1,18 +1,10 @@
 'use client';
 import { Button, H2, Paragraph } from '@/components/atoms';
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './FeaturedProduct.module.scss';
 import { useWindowSize } from 'usehooks-ts';
-
-export interface FeaturedProductProps {
-  title: string;
-  variation: 'primary' | 'secondary' | 'tertiary';
-  description?: string;
-  mobileImg: string;
-  desktopImg: string;
-  tabletImg?: string;
-}
+import { FeaturedProductProps } from '@/models/componentsProps';
 
 const FeaturedProduct: React.FC<FeaturedProductProps> = ({
   title,
