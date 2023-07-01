@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import AddToCart from '.';
 
 export default {
-  title: 'Components/Atoms/AddToCart',
+  title: 'Components/Molecules/AddToCart',
   component: AddToCart,
 } as Meta;
 

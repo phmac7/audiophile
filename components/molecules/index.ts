@@ -11,3 +11,4 @@ export { default as InTheBox } from './InTheBox';
 export { default as Gallery } from './Gallery';
 export { default as YouMayAlsoLike } from './YouMayAlsoLike';
 export { default as ProductInCart } from './ProductInCart';
+export { default as AddToCart } from './AddToCart';

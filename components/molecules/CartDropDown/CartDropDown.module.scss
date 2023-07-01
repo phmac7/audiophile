@@ -40,7 +40,7 @@
   @media only screen and (min-width: 2500px) {
     right: 70rem;
   }
-  &Backdrop {
+  &__Backdrop {
     position: absolute;
     background-color: rgba(#000, $alpha: 0.7);
     height: 100vh;
@@ -48,7 +48,7 @@
     z-index: -2;
   }
 
-  &Heading {
+  &__Heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +67,7 @@
       font-weight: 500;
     }
   }
-  &Total {
+  &__Total {
     display: flex;
     justify-content: space-between;
     &Title {
@@ -79,5 +79,9 @@
       font-size: 1.8rem;
       font-weight: 700;
     }
+  }
+
+  &__CheckoutButton button {
+    width: 100%;
   }
 }

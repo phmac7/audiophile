@@ -4,11 +4,12 @@
   flex-direction: row;
   align-items: center;
   gap: 1.6rem;
-  justify-content: space-between;
   &__text {
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
+    justify-self: flex-start;
+    flex: 1;
     @media only screen and (min-width: 768px) {
       font-size: 1.6rem;
     }

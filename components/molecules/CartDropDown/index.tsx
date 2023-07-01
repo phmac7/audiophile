@@ -3,6 +3,7 @@ import { usenavbarStore } from '@/store/navbar-store';
 import { Button } from '@/components/atoms';
 import ProductInCart from '../ProductInCart';
 import { useCartStore } from '@/store/cart-store';
+import Link from 'next/link';
 
 const CartDropDown = () => {
   const closeCart = usenavbarStore((state) => state.closeCart);
@@ -12,16 +13,16 @@ const CartDropDown = () => {
   return (
     <>
       <div className={styles.cart}>
-        <div className={styles.cartHeading}>
-          <span className={styles.cartHeadingTitle}>
+        <div className={styles.cart__Heading}>
+          <span className={styles.cart__HeadingTitle}>
             CART({productList.reduce((total, item) => total + item.quantity, 0)}
             )
           </span>
-          <button className={styles.cartHeadingBtn} onClick={cleanCart}>
+          <button className={styles.cart__HeadingBtn} onClick={cleanCart}>
             Remove All
           </button>
         </div>
-        <div className={styles.cartProducts}>
+        <div className={styles.cart__Products}>
           {productList.length === 0 ? (
             <p>No product in cart yet</p>
           ) : (
@@ -36,9 +37,9 @@ const CartDropDown = () => {
             ))
           )}
         </div>
-        <div className={styles.cartTotal}>
-          <span className={styles.cartTotalTitle}>Total</span>
-          <span className={styles.cartTotalValue}>
+        <div className={styles.cart__Total}>
+          <span className={styles.cart__TotalTitle}>Total</span>
+          <span className={styles.cart__TotalValue}>
             $
             {productList.reduce(
               (total, item) => total + item.price * item.quantity,
@@ -46,9 +47,15 @@ const CartDropDown = () => {
             )}
           </span>
         </div>
-        <Button label="checkout" variation="primary" />
+        <Link
+          href={'/checkout'}
+          onClick={closeCart}
+          className={styles.cart__CheckoutButton}
+        >
+          <Button label="checkout" variation="primary" />
+        </Link>
       </div>
-      <div className={styles.cartBackdrop} onClick={closeCart}></div>
+      <div className={styles.cart__Backdrop} onClick={closeCart}></div>
     </>
   );
 };

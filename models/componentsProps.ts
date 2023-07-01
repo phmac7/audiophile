@@ -142,7 +142,7 @@ export interface ButtonProps {
 
 export interface HeadingProps {
   text: string;
-  color?: '#000' | '#FFF' | '#fff';
+  color?: string;
 }
 
 export interface OverlineProps {
@@ -199,6 +199,7 @@ export interface ProductInCartProps {
   name: string;
   price: number;
   imgUrl: string;
+  withToggle?: boolean;
 }
 export interface YouMayAlsoLikeProps {
   products: ProductDetailsProps['similarProducts'];

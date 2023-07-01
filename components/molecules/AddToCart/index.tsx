@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import Button from '../Button';
-import ToggleQuantity from '../ToggleQuantity';
+import Button from '../../atoms/Button';
+import ToggleQuantity from '../../atoms/ToggleQuantity';
 import styles from './AddToCart.module.scss';
 import { useCartStore } from '@/store/cart-store';
 import { AddToCartProps } from '@/models/componentsProps';

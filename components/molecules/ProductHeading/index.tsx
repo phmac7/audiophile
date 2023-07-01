@@ -1,9 +1,10 @@
 'use client';
 import Image from 'next/image';
 import styles from './ProductHeading.module.scss';
-import { AddToCart, H2, Overline, Paragraph } from '@/components/atoms';
+import { H2, Overline, Paragraph } from '@/components/atoms';
 import { useWindowSize } from 'usehooks-ts';
 import { ProductHeadingProps } from '@/models/componentsProps';
+import { AddToCart } from '@/components/molecules';
 
 const ProductHeading: React.FC<ProductHeadingProps> = ({
   isNew,

@@ -6,3 +6,5 @@ export { default as AudiophileBio } from './AudiophileBio';
 export { default as Footer } from './Footer';
 export { default as ProductDetails } from './ProductDetails';
 export { default as ProductList } from './ProductList';
+export { default as Summary } from './Summary';
+export { default as CheckoutForm } from './CheckoutForm';

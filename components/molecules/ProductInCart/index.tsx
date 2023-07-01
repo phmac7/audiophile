@@ -10,9 +10,10 @@ const ProductInCart: React.FC<ProductInCartProps> = ({
   price,
   imgUrl,
   id,
+  withToggle = 'false',
 }) => {
   const itemList = useCartStore((state) => state.itemList);
-  console.log(itemList);
+  const itemQuantity = itemList.find((item) => item.id === id)?.quantity;
   return (
     <article className={styles.product}>
       <Image
@@ -26,7 +27,11 @@ const ProductInCart: React.FC<ProductInCartProps> = ({
         <span className={styles.product__textTitle}>{name}</span>
         <span className={styles.product__textPrice}>${price}</span>
       </div>
-      <ToggleQuantity forCart={true} id={id!} />
+      {withToggle ? (
+        <ToggleQuantity forCart={true} id={id!} />
+      ) : (
+        <span>{itemQuantity}</span>
+      )}
     </article>
   );
 };
