@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Paragraph, { ParagraphProps } from '.';
+import Paragraph from '.';
+import { ParagraphProps } from '@/models/componentsProps';
 
 export default {
   title: 'Components/Atoms/Paragraph',

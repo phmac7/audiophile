@@ -139,6 +139,7 @@ export interface ButtonProps {
   variation?: 'primary' | 'secondary' | 'tertiary';
   onClick?: () => void;
   form?: string;
+  role?: string;
 }
 
 export interface HeadingProps {
@@ -226,4 +227,33 @@ export interface ProductListProps {
         sys: { __typename?: 'Sys'; id: string };
       } | null>
     | undefined;
+}
+
+export interface InputProps {
+  label: string;
+  type: 'text' | 'email' | 'tel' | 'number' | 'address';
+  placeholder: string;
+  id?:
+    | 'name'
+    | 'email'
+    | 'phone'
+    | 'address'
+    | 'zip'
+    | 'city'
+    | 'country'
+    | 'paymentMethod'
+    | 'eMoneyNumber'
+    | 'eMoneyPin';
+}
+
+export interface RadioInputProps {
+  value: string;
+  group: string;
+  checked?: boolean;
+}
+
+export interface SubTitlePriceProps {
+  variation?: 'primary' | 'secondary';
+  title: string;
+  price: number | string;
 }

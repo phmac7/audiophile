@@ -2,23 +2,7 @@
 import { useRef, useState } from 'react';
 import styles from './Input.module.scss';
 import { useFormStore } from '@/store/form-store';
-
-interface InputProps {
-  label: string;
-  type: 'text' | 'email' | 'tel' | 'number' | 'address';
-  placeholder: string;
-  id?:
-    | 'name'
-    | 'email'
-    | 'phone'
-    | 'address'
-    | 'zip'
-    | 'city'
-    | 'country'
-    | 'paymentMethod'
-    | 'eMoneyNumber'
-    | 'eMoneyPin';
-}
+import { InputProps } from '@/models/componentsProps';
 
 const Input: React.FC<InputProps> = ({ label, type, placeholder, id }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,63 +10,42 @@ const Input: React.FC<InputProps> = ({ label, type, placeholder, id }) => {
   const setValid = useFormStore((state) => state.setValid);
   const setInvalid = useFormStore((state) => state.setInvalid);
 
+  const checkRegex = (value: any, regex: RegExp) => {
+    if (regex.test(value!)) {
+      setIsValid(true);
+      setValid(id!);
+    } else {
+      setIsValid(false);
+      setInvalid(id!);
+    }
+  };
+
   const validator = () => {
     const value = inputRef.current?.value;
     if (type === 'text') {
       const regex = new RegExp('^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$');
-      if (regex.test(value!)) {
-        setIsValid(true);
-        setValid(id!);
-      } else {
-        setIsValid(false);
-        setInvalid(id!);
-      }
+      checkRegex(value, regex);
     }
     if (type === 'email') {
       const regex = new RegExp(
         '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$'
       );
-      if (regex.test(value!)) {
-        setIsValid(true);
-        setValid(id!);
-      } else {
-        setIsValid(false);
-        setInvalid(id!);
-      }
+      checkRegex(value, regex);
     }
     if (type === 'tel') {
-      const regex = new RegExp('^[0-9]{10,14}$');
-      if (regex.test(value!)) {
-        setIsValid(true);
-        setValid(id!);
-      } else {
-        setIsValid(false);
-        setInvalid(id!);
-      }
+      const regex = new RegExp('^[0-9]{8,14}$');
+      checkRegex(value, regex);
     }
     if (type === 'address') {
       const regex = new RegExp(
         '^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9, ]+$'
       );
-      if (regex.test(value!)) {
-        setIsValid(true);
-        setValid(id!);
-      } else {
-        setIsValid(false);
-        setInvalid(id!);
-      }
+      checkRegex(value, regex);
     }
     if (type === 'number') {
-      const regex = new RegExp('^[0-9]{5,9}$');
-      if (regex.test(value!)) {
-        setIsValid(true);
-        setValid(id!);
-      } else {
-        setIsValid(false);
-        setInvalid(id!);
-      }
+      const regex = new RegExp('^[0-9]{3,9}$');
+      checkRegex(value, regex);
     }
-    console.log(isValid);
   };
 
   const blankValidator = () => {

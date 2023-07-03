@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { H1 } from '@/components/atoms';
-import { HeadingProps } from '@/components/atoms/Heading/H1';
+import { HeadingProps } from '@/models/componentsProps';
 
 export default {
   title: 'Components/Atoms/Heading',

@@ -1,10 +1,5 @@
+import { RadioInputProps } from '@/models/componentsProps';
 import styles from './RadioInput.module.scss';
-
-interface RadioInputProps {
-  value: string;
-  group: string;
-  checked?: boolean;
-}
 
 const RadioInput: React.FC<RadioInputProps> = ({ value, group, checked }) => {
   return (

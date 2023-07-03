@@ -8,6 +8,7 @@ const Button: React.FC<ButtonProps> = ({
   variation = 'primary',
   onClick,
   form,
+  role,
 }) => {
   const onClickHandler = () => {
     onClick ? onClick() : null;
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       form={form ? form : ''}
+      role={role ? role : 'button'}
       onClick={onClickHandler}
       className={`${styles[`button--${variation}`]} ${styles.button}`}
     >

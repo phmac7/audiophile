@@ -10,7 +10,6 @@ const CheckoutForm = () => {
   const formIsValid = useFormStore((state) => state.isValid);
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formIsValid);
   };
   return (
     <section>

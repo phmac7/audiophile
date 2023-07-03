@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import FeaturedProduct from '.';
-import { FeaturedProductProps } from './';
+import { FeaturedProductProps } from '@/models/componentsProps';
 
 export default {
   title: 'Components/Molecules/FeaturedProduct',

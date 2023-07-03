@@ -1,10 +1,5 @@
+import { SubTitlePriceProps } from '@/models/componentsProps';
 import styles from './SubTitlePrice.module.scss';
-
-interface SubTitlePriceProps {
-  variation?: 'primary' | 'secondary';
-  title: string;
-  price: number | string;
-}
 
 const SubTitlePrice: React.FC<SubTitlePriceProps> = ({
   variation = 'primary',

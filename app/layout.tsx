@@ -21,6 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <ApolloWrapper>
+          <div id="backdrop-root"></div>
+          <div id="overlay-root"></div>
           <Navbar />
           <GetHeader />
           <main className={styles.layout}>{children}</main>
