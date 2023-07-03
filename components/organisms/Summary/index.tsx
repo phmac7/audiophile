@@ -42,7 +42,7 @@ const Summary = () => {
         />
       </div>
       <div className={styles.summary__btn}>
-        <Button label="continue & pay" />
+        <Button label="continue & pay" form={'checkout'} />
       </div>
     </section>
   );

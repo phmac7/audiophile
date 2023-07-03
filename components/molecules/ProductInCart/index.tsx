@@ -30,7 +30,7 @@ const ProductInCart: React.FC<ProductInCartProps> = ({
       {withToggle ? (
         <ToggleQuantity forCart={true} id={id!} />
       ) : (
-        <span>{itemQuantity}</span>
+        <span>x{itemQuantity}</span>
       )}
     </article>
   );

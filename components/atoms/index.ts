@@ -10,3 +10,5 @@ export { default as Paragraph } from './Paragraph';
 export { default as GoBackLink } from './GoBackLink';
 export { default as ToggleQuantity } from './ToggleQuantity';
 export { default as SubTitlePrice } from './SubTitlePrice';
+export { default as Input } from './Input';
+export { default as RadioInput } from './RadioInput';

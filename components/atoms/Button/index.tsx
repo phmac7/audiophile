@@ -7,12 +7,15 @@ const Button: React.FC<ButtonProps> = ({
   label,
   variation = 'primary',
   onClick,
+  form,
 }) => {
   const onClickHandler = () => {
     onClick ? onClick() : null;
   };
+
   return (
     <button
+      form={form ? form : ''}
       onClick={onClickHandler}
       className={`${styles[`button--${variation}`]} ${styles.button}`}
     >

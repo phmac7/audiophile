@@ -138,6 +138,7 @@ export interface ButtonProps {
   label: string;
   variation?: 'primary' | 'secondary' | 'tertiary';
   onClick?: () => void;
+  form?: string;
 }
 
 export interface HeadingProps {
