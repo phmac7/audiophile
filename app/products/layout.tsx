@@ -9,9 +9,7 @@ export default function RootLayout({
   return (
     <>
       {children}
-      <Suspense fallback={<p>Loading...</p>}>
-        <Categories />
-      </Suspense>
+      <Categories />
       <AudiophileBio />
     </>
   );

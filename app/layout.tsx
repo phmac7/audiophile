@@ -12,6 +12,8 @@ export const metadata = {
   description: 'Best audio',
 };
 
+const deliveryKey = process.env.CONTENT_DELIVERY_KEY as string;
+const url = process.env.ENDPOINT_CONTENTFUL as string;
 export default function RootLayout({
   children,
 }: {
@@ -20,14 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.className}>
-        <ApolloWrapper>
-          <div id="backdrop-root"></div>
-          <div id="overlay-root"></div>
+        <div id="backdrop-root"></div>
+        <div id="overlay-root"></div>
+        <ApolloWrapper deliveryKey={deliveryKey} url={url}>
           <Navbar />
           <GetHeader />
           <main className={styles.layout}>{children}</main>
-          <Footer />
         </ApolloWrapper>
+        <Footer />
       </body>
     </html>
   );

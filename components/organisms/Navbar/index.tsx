@@ -10,14 +10,12 @@ import { useWindowSize } from 'usehooks-ts';
 import { useCartStore } from '@/store/cart-store';
 
 const Navbar: React.FC = () => {
-  const {
-    closeCart,
-    isCartOpen,
-    toggleCartOpen,
-    isMenuOpen,
-    toggleMenuOpen,
-    closeMenu,
-  } = usenavbarStore();
+  const closeCart = usenavbarStore((state) => state.closeCart);
+  const isCartOpen = usenavbarStore((state) => state.isCartOpen);
+  const toggleCartOpen = usenavbarStore((state) => state.toggleCartOpen);
+  const isMenuOpen = usenavbarStore((state) => state.isMenuOpen);
+  const toggleMenuOpen = usenavbarStore((state) => state.toggleMenuOpen);
+  const closeMenu = usenavbarStore((state) => state.closeMenu);
   const { width } = useWindowSize();
   const cartList = useCartStore((state) => state.itemList);
 
@@ -27,7 +25,7 @@ const Navbar: React.FC = () => {
       : document.body.classList.remove('navbar-open');
 
     width >= 1024 ? closeMenu() : null;
-  }, [isMenuOpen, width, closeMenu]);
+  }, [isMenuOpen, width]);
 
   const toggleMenu = () => {
     if (isCartOpen) {

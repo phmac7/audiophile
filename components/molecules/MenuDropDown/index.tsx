@@ -1,6 +1,7 @@
+import { Categories } from '@/components/organisms';
 import styles from './MenuDropDown.module.scss';
-import { CategoriesOnMenu } from '@/components/organisms/Categories';
 import { usenavbarStore } from '@/store/navbar-store';
+import { Suspense } from 'react';
 
 const MenuDropDown = () => {
   const closeMenu = usenavbarStore((state) => state.closeMenu);
@@ -8,13 +9,12 @@ const MenuDropDown = () => {
   return (
     <>
       <div className={styles.navbar__menuOpen}>
-        <CategoriesOnMenu />
+        <Categories />
       </div>
       <div
         className={styles.navbar__menuOpenBackdrop}
         onClick={closeMenu}
       ></div>
-      ;
     </>
   );
 };

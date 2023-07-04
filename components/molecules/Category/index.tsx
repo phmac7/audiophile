@@ -7,7 +7,8 @@ import { usenavbarStore } from '@/store/navbar-store';
 import { CategoryProps } from '@/models/componentsProps';
 
 const Category: React.FC<CategoryProps> = ({ category, url }) => {
-  const { closeMenu, isMenuOpen } = usenavbarStore();
+  const closeMenu = usenavbarStore((state) => state.closeMenu);
+  const isMenuOpen = usenavbarStore((state) => state.isMenuOpen);
 
   const getCategoryImage = () => {
     return (

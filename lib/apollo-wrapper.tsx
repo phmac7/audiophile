@@ -12,12 +12,11 @@ import {
   SSRMultipartLink,
 } from '@apollo/experimental-nextjs-app-support/ssr';
 
-function makeClient() {
+function makeClient(url: string, deliveryKey: string) {
   const httpLink = new HttpLink({
-    // https://studio.apollographql.com/public/spacex-l4uc6p/
-    uri: process.env.ENDPOINT_CONTENTFUL,
+    uri: url,
     headers: {
-      Authorization: 'Bearer ' + process.env.CONTENT_DELIVERY_KEY,
+      authorization: `Bearer ${deliveryKey}`,
     },
   });
 
@@ -39,10 +38,18 @@ function makeSuspenseCache() {
   return new SuspenseCache();
 }
 
-export function ApolloWrapper({ children }: React.PropsWithChildren) {
+export function ApolloWrapper({
+  children,
+  url,
+  deliveryKey,
+}: {
+  children: React.ReactNode;
+  url: string;
+  deliveryKey: string;
+}) {
   return (
     <ApolloNextAppProvider
-      makeClient={makeClient}
+      makeClient={() => makeClient(url, deliveryKey)}
       makeSuspenseCache={makeSuspenseCache}
     >
       {children}

@@ -16,9 +16,7 @@ export default async function Home() {
   //   });
   return (
     <>
-      <Suspense fallback={<p>loading...</p>}>
-        <Categories />
-      </Suspense>
+      <Categories />
       <FeaturedProducts />
       <AudiophileBio />
     </>
