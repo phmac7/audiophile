@@ -4,7 +4,7 @@ import styles from './Summary.module.scss';
 import { useCartStore } from '@/store/cart-store';
 import { ProductInCart } from '@/components/molecules';
 import { useModalStore } from '@/store/modal-store';
-import Modal from '@/components/molecules/Modal';
+import { Modal } from '@/components/organisms';
 import OrderConfirm from '../OrderConfirm';
 import { useFormStore } from '@/store/form-store';
 import { useState } from 'react';

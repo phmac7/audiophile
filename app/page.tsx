@@ -3,11 +3,8 @@ import {
   Categories,
   FeaturedProducts,
 } from '@/components/organisms';
-
-import { getClient } from '../graphQL/graphQLClient';
-import { GET_CATEGORIES } from '@/graphQL/queries';
-import { GetCategoriesQuery } from '@/graphQL/schema';
 import { Suspense } from 'react';
+import { CategoriesSkeleton } from '@/components/skeletons/skeletons';
 
 export default async function Home() {
   //   const client = getClient();
