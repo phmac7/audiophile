@@ -8,7 +8,7 @@ const config: CodegenConfig = {
       [fetchConfig.endpoint]: fetchConfig.params,
     },
   ],
-  documents: 'graphQL/queries.ts',
+  documents: ['graphQL/queries.ts'],
   generates: {
     'graphQL/schema.ts': {
       plugins: ['typescript', 'typescript-operations'],
