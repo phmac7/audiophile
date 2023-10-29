@@ -3,6 +3,7 @@ import { ProductDetails } from '@/components/organisms';
 import { getClient } from '@/graphQL/graphQLClient';
 import { GET_PRODUCTPAGE_INFO } from '@/graphQL/queries';
 import { GetProductPageInfoQuery } from '@/graphQL/schema';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 const Page = async ({ params }: { params: { slug: string } }) => {
@@ -11,6 +12,10 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     query: GET_PRODUCTPAGE_INFO,
     variables: { slug: params.slug },
   });
+
+  if (!data.productCollection?.items[0]?.sys.id) {
+    return notFound();
+  }
 
   return (
     <section>
