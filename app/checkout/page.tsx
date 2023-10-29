@@ -1,6 +1,5 @@
 import { GoBackLink } from '@/components/atoms';
 import { CheckoutForm, Summary } from '@/components/organisms';
-import { ApolloWrapper } from '@/lib/apollo-wrapper';
 import styles from '@/styles/checkout.module.scss';
 
 export default function Checkout() {

@@ -23,8 +23,6 @@ export const useCartStore = create<cartStoreType>((set, get) => ({
   addItem: (item: ItemType) => {
     const itemList = get().itemList;
     if (itemList.some((e) => e.id === item.id)) {
-      //   const index = itemList.findIndex((e) => e.id === item.id);
-      //   const oldQuantity = itemList[index].quantity;
       const oldQuantity = itemList.find((i) => i.id === item.id)?.quantity!;
       set((state) => ({
         itemList: state.itemList.map((i) =>
@@ -37,8 +35,6 @@ export const useCartStore = create<cartStoreType>((set, get) => ({
   },
   increaseQuantity: (id) => {
     const itemList = get().itemList;
-    // const index = itemList.findIndex((item) => item.id === id);
-    // let oldQuantity = itemList[index].quantity;
     const oldQuantity = itemList.find((item) => item.id === id)?.quantity!;
     set((state) => ({
       itemList: state.itemList.map((item) =>
@@ -48,8 +44,6 @@ export const useCartStore = create<cartStoreType>((set, get) => ({
   },
   decreaseQuantity: (id) => {
     const itemList = get().itemList;
-    // const index = itemList.findIndex((item) => item.id === id);
-    // const oldQuantity = itemList[index].quantity;
     const oldQuantity = itemList.find((item) => item.id === id)?.quantity!;
     if (oldQuantity === 1) {
       set((state) => ({
