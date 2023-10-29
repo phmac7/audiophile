@@ -973,6 +973,7 @@ export type Product = Entry & {
 export type ProductCategoryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<CategoryFilter>;
 };
 
 
@@ -992,6 +993,7 @@ export type ProductFeaturesArgs = {
 export type ProductGalleryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<GalleryItemFilter>;
 };
 
 
@@ -1034,6 +1036,7 @@ export type ProductProductBoxContentCollectionArgs = {
 export type ProductProductImagesArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ImageFilter>;
 };
 
 
@@ -1084,6 +1087,14 @@ export type ProductDescriptionLinks = {
   __typename?: 'ProductDescriptionLinks';
   assets: ProductDescriptionAssets;
   entries: ProductDescriptionEntries;
+  resources: ProductDescriptionResources;
+};
+
+export type ProductDescriptionResources = {
+  __typename?: 'ProductDescriptionResources';
+  block: Array<ResourceLink>;
+  hyperlink: Array<ResourceLink>;
+  inline: Array<ResourceLink>;
 };
 
 export type ProductFeatures = {
@@ -1109,6 +1120,14 @@ export type ProductFeaturesLinks = {
   __typename?: 'ProductFeaturesLinks';
   assets: ProductFeaturesAssets;
   entries: ProductFeaturesEntries;
+  resources: ProductFeaturesResources;
+};
+
+export type ProductFeaturesResources = {
+  __typename?: 'ProductFeaturesResources';
+  block: Array<ResourceLink>;
+  hyperlink: Array<ResourceLink>;
+  inline: Array<ResourceLink>;
 };
 
 export type ProductFilter = {
@@ -1398,6 +1417,18 @@ export type QueryProductCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ProductFilter>;
+};
+
+export type ResourceLink = {
+  __typename?: 'ResourceLink';
+  sys: ResourceSys;
+};
+
+export type ResourceSys = {
+  __typename?: 'ResourceSys';
+  linkType: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+  urn: Scalars['String']['output'];
 };
 
 export type Sys = {

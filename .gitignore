@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 *.pem
-codegen.ts
 codegen.yml
 
 # debug
@@ -28,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
